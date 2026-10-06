@@ -1,0 +1,2393 @@
+[
+  {
+    "id": 1,
+    "title": "MAYDAY — critical distress",
+    "category": "Emergency",
+    "description": "A simulated aircraft declares distress and needs urgent assistance.",
+    "tags": [
+      "mayday",
+      "distress",
+      "priority"
+    ],
+    "effects": {
+      "emergencies": [
+        "MAYDAY"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 2,
+    "title": "PAN-PAN — urgency",
+    "category": "Emergency",
+    "description": "An urgent but not yet distress-level event may escalate.",
+    "tags": [
+      "pan-pan",
+      "urgency",
+      "escalation"
+    ],
+    "effects": {
+      "emergencies": [
+        "PAN-PAN"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 3,
+    "title": "Squawk 7700 — general emergency",
+    "category": "Emergency",
+    "description": "A general emergency indication is raised; cause remains a separate field.",
+    "tags": [
+      "7700",
+      "emergency"
+    ],
+    "effects": {
+      "emergencies": [
+        "7700"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 4,
+    "title": "Squawk 7500 — unlawful interference",
+    "category": "Emergency",
+    "description": "A security-sensitive simulated event invokes a dedicated policy.",
+    "tags": [
+      "7500",
+      "security"
+    ],
+    "effects": {
+      "emergencies": [
+        "7500"
+      ],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            -1,
+            1,
+            -1,
+            1
+          ],
+          "label": "Security isolation area",
+          "from_t": 0,
+          "until_t": null
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 5,
+    "title": "Squawk 7600 — radio failure",
+    "category": "Emergency",
+    "description": "Communication loss is simulated with uncertainty and contingency assumptions.",
+    "tags": [
+      "7600",
+      "communications"
+    ],
+    "effects": {
+      "emergencies": [
+        "7600"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 6,
+    "title": "Engine failure / technical malfunction",
+    "category": "Emergency",
+    "description": "Aircraft performance assumptions change and candidate destinations are reevaluated.",
+    "tags": [
+      "technical",
+      "performance"
+    ],
+    "effects": {
+      "emergencies": [
+        "TECH"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 1,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 7,
+    "title": "Onboard medical emergency",
+    "category": "Emergency",
+    "description": "Medical response time and feasible diversion options are considered.",
+    "tags": [
+      "medical",
+      "time-sensitive"
+    ],
+    "effects": {
+      "emergencies": [
+        "MEDICAL"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 8,
+    "title": "Low fuel / fuel-system alert",
+    "category": "Emergency",
+    "description": "Available endurance constrains feasible destination and route choices.",
+    "tags": [
+      "fuel",
+      "resource"
+    ],
+    "effects": {
+      "emergencies": [
+        "FUEL"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 1,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 9,
+    "title": "Presidential visit / VIP security zone",
+    "category": "Security & airspace",
+    "description": "A temporary security zone conflicts with normal traffic and an unexpected emergency.",
+    "tags": [
+      "VIP",
+      "restriction"
+    ],
+    "effects": {
+      "emergencies": [
+        "MAYDAY"
+      ],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            1,
+            3,
+            -2,
+            3
+          ],
+          "label": "VIP security zone",
+          "from_t": 0,
+          "until_t": null
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 10,
+    "title": "Sudden temporary flight restriction",
+    "category": "Security & airspace",
+    "description": "A region closes while agents are in flight.",
+    "tags": [
+      "TFR",
+      "closure"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            1,
+            3,
+            -2,
+            3
+          ],
+          "label": "Temporary flight restriction",
+          "from_t": 4,
+          "until_t": null
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 11,
+    "title": "Military exercise airspace",
+    "category": "Security & airspace",
+    "description": "A restricted military sector blocks otherwise attractive paths.",
+    "tags": [
+      "military",
+      "restricted"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            1,
+            4,
+            -3,
+            1
+          ],
+          "label": "Military exercise area",
+          "from_t": 0,
+          "until_t": null
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 12,
+    "title": "Airport closure",
+    "category": "Security & airspace",
+    "description": "One airport is removed from the destination set.",
+    "tags": [
+      "airport",
+      "closure"
+    ],
+    "effects": {
+      "emergencies": [
+        "MEDICAL"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": false,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 13,
+    "title": "Airspace corridor closure",
+    "category": "Security & airspace",
+    "description": "A major graph corridor is blocked and affected paths are recomputed.",
+    "tags": [
+      "corridor",
+      "reroute"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            -3,
+            -2,
+            -5,
+            2
+          ],
+          "label": "Closed corridor",
+          "from_t": 0,
+          "until_t": null
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 14,
+    "title": "Drone incursion near airport",
+    "category": "Security & airspace",
+    "description": "A localized synthetic hazard affects nearby traffic.",
+    "tags": [
+      "drone",
+      "hazard"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            -1,
+            1,
+            1,
+            2
+          ],
+          "label": "Drone incursion hazard",
+          "from_t": 3,
+          "until_t": 14
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 15,
+    "title": "Security restriction changes mid-flight",
+    "category": "Security & airspace",
+    "description": "The restricted geometry changes while routes are active.",
+    "tags": [
+      "dynamic",
+      "restriction"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            1,
+            3,
+            -2,
+            3
+          ],
+          "label": "Restriction (initial)",
+          "from_t": 0,
+          "until_t": 5
+        },
+        {
+          "kind": "rect",
+          "rect": [
+            0,
+            3,
+            -3,
+            4
+          ],
+          "label": "Restriction (expanded)",
+          "from_t": 5,
+          "until_t": null
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 16,
+    "title": "Severe crosswind",
+    "category": "Weather",
+    "description": "Runway feasibility is evaluated against configured aircraft limits.",
+    "tags": [
+      "crosswind",
+      "runway"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": [
+        30,
+        180
+      ],
+      "gust_floor": 33,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 17,
+    "title": "Gusting wind",
+    "category": "Weather",
+    "description": "Gust inputs change and runway feasibility is recalculated.",
+    "tags": [
+      "gusts",
+      "runway"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": [
+        20,
+        200
+      ],
+      "gust_floor": 31,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 18,
+    "title": "Moving thunderstorm",
+    "category": "Weather",
+    "description": "A time-varying weather hazard moves across the graph.",
+    "tags": [
+      "storm",
+      "moving"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [
+        {
+          "kind": "storm",
+          "label": "Moving thunderstorm cell",
+          "from_t": 0,
+          "until_t": null,
+          "start": [
+            -5,
+            3
+          ],
+          "velocity": [
+            0.7,
+            -0.2
+          ],
+          "size": 1
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 19,
+    "title": "Heavy rain / reduced visibility",
+    "category": "Weather",
+    "description": "Configurable visibility constraints change feasible options.",
+    "tags": [
+      "rain",
+      "visibility"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 1,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 1,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 20,
+    "title": "Fog / low visibility",
+    "category": "Weather",
+    "description": "Landing options are reevaluated under simulated visibility limits.",
+    "tags": [
+      "fog",
+      "visibility"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 1,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 2,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 21,
+    "title": "Windshear alert",
+    "category": "Weather",
+    "description": "A synthetic alert marks an approach area as unavailable for the scenario.",
+    "tags": [
+      "windshear",
+      "hazard"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            -2,
+            -1,
+            -1,
+            1
+          ],
+          "label": "Windshear alert area",
+          "from_t": 3,
+          "until_t": 18
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 22,
+    "title": "Weather deteriorates during reroute",
+    "category": "Weather",
+    "description": "A route becomes invalid after conditions change.",
+    "tags": [
+      "dynamic",
+      "replan"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            -1,
+            2,
+            -3,
+            3
+          ],
+          "label": "Weather deteriorates",
+          "from_t": 5,
+          "until_t": null
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 23,
+    "title": "Weather feed unavailable",
+    "category": "Weather",
+    "description": "Weather uncertainty is explicitly surfaced instead of assuming safe conditions.",
+    "tags": [
+      "data",
+      "uncertainty"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 12,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "WEATHER UNAVAILABLE - conservative wind assumed",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 24,
+    "title": "Sudden runway closure",
+    "category": "Airport & runway",
+    "description": "A runway is marked unavailable during the simulation.",
+    "tags": [
+      "runway",
+      "closure"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 1,
+      "runways_after": [
+        5,
+        0
+      ],
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 25,
+    "title": "Aircraft-specific runway compatibility",
+    "category": "Airport & runway",
+    "description": "Runway candidates are filtered by configurable length and compatibility.",
+    "tags": [
+      "aircraft",
+      "compatibility"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 2300,
+      "alt_runway_length_m": 2300,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": true,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 26,
+    "title": "Heterogeneous aircraft performance",
+    "category": "Airport & runway",
+    "description": "Heavy, narrowbody, regional and turboprop profiles have different constraints.",
+    "tags": [
+      "aircraft",
+      "heterogeneous"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": true,
+      "extra_traffic": 3,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 27,
+    "title": "Runway congestion",
+    "category": "Airport & runway",
+    "description": "Several arrivals compete for limited runway occupancy windows.",
+    "tags": [
+      "capacity",
+      "queue"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 1,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 4,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 28,
+    "title": "Limited runway capacity",
+    "category": "Airport & runway",
+    "description": "Landing slots are constrained and must be scheduled.",
+    "tags": [
+      "capacity",
+      "scheduling"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 1,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 2,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 2,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 29,
+    "title": "Required emergency services unavailable",
+    "category": "Airport & runway",
+    "description": "Relevant destinations are filtered or flagged when modeled support is unavailable.",
+    "tags": [
+      "services",
+      "feasibility"
+    ],
+    "effects": {
+      "emergencies": [
+        "MEDICAL",
+        "MEDICAL"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": false,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 30,
+    "title": "Diversion airport at capacity",
+    "category": "Airport & runway",
+    "description": "An alternate airport cannot accept unlimited redirected traffic.",
+    "tags": [
+      "diversion",
+      "capacity"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 1,
+      "primary_open": false,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 2,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 3,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 31,
+    "title": "Taxiway / ground movement disruption",
+    "category": "Airport & runway",
+    "description": "A post-landing ground constraint is included in scenario outcomes.",
+    "tags": [
+      "taxiway",
+      "ground"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 1,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 3,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 32,
+    "title": "Two aircraft converge on same cell",
+    "category": "Multi-agent",
+    "description": "Space-time occupancy conflicts are detected and resolved where possible.",
+    "tags": [
+      "conflict",
+      "separation"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 5,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 33,
+    "title": "Multiple emergency landing requests",
+    "category": "Multi-agent",
+    "description": "Several urgent agents compete for limited capacity.",
+    "tags": [
+      "multiple",
+      "emergency"
+    ],
+    "effects": {
+      "emergencies": [
+        "MAYDAY",
+        "MAYDAY",
+        "MEDICAL"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 1,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 1,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 34,
+    "title": "Emergency versus VIP restriction",
+    "category": "Multi-agent",
+    "description": "Emergency and security constraints are evaluated together.",
+    "tags": [
+      "emergency",
+      "VIP"
+    ],
+    "effects": {
+      "emergencies": [
+        "MAYDAY"
+      ],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            1,
+            3,
+            -2,
+            3
+          ],
+          "label": "VIP security zone",
+          "from_t": 0,
+          "until_t": null
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 35,
+    "title": "Emergency diverts regional traffic",
+    "category": "Multi-agent",
+    "description": "A destination disruption causes neighboring airports to absorb traffic.",
+    "tags": [
+      "cascade",
+      "diversion"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": false,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 3,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 36,
+    "title": "Aircraft compete for same runway",
+    "category": "Multi-agent",
+    "description": "Runway occupancy and arrival sequencing are modeled.",
+    "tags": [
+      "runway",
+      "scheduling"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 1,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 3,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 37,
+    "title": "Reroute creates a new conflict",
+    "category": "Multi-agent",
+    "description": "A changed route is checked against other agents' reservations.",
+    "tags": [
+      "replan",
+      "conflict"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            -3,
+            -2,
+            -5,
+            2
+          ],
+          "label": "New restriction",
+          "from_t": 4,
+          "until_t": null
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 4,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 38,
+    "title": "Several emergencies simultaneously",
+    "category": "Multi-agent",
+    "description": "Different event types are active in one compound simulation.",
+    "tags": [
+      "multi-event",
+      "coordination"
+    ],
+    "effects": {
+      "emergencies": [
+        "MAYDAY",
+        "7700",
+        "PAN-PAN"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 1,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 39,
+    "title": "No feasible conflict-free plan",
+    "category": "Multi-agent",
+    "description": "The planner should report infeasibility rather than invent a safe route.",
+    "tags": [
+      "infeasible",
+      "safety"
+    ],
+    "effects": {
+      "emergencies": [
+        "MAYDAY",
+        "MAYDAY",
+        "MAYDAY",
+        "MAYDAY"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 1,
+      "runways_after": null,
+      "alt_runways": 1,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 12,
+      "alt_occupancy_extra": 12,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 2,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 40,
+    "title": "PAN-PAN escalates to MAYDAY",
+    "category": "Emergency",
+    "description": "An event state changes and triggers reprioritization and replanning.",
+    "tags": [
+      "escalation",
+      "mayday"
+    ],
+    "effects": {
+      "emergencies": [
+        "PAN-PAN"
+      ],
+      "hazards": [],
+      "timeline": [
+        {
+          "t": 5,
+          "escalate": {
+            "agent": 0,
+            "type": "MAYDAY"
+          }
+        }
+      ],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 41,
+    "title": "Second emergency mid-reroute",
+    "category": "Data resilience",
+    "description": "A new event invalidates part of the current solution.",
+    "tags": [
+      "dynamic",
+      "event"
+    ],
+    "effects": {
+      "emergencies": [
+        "MAYDAY"
+      ],
+      "hazards": [],
+      "timeline": [
+        {
+          "t": 6,
+          "declare": {
+            "agent": 2,
+            "type": "7700"
+          }
+        }
+      ],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 42,
+    "title": "Delayed aircraft position update",
+    "category": "Data resilience",
+    "description": "Stale observations are identified and flagged.",
+    "tags": [
+      "stale-data",
+      "uncertainty"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.4,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "STALE - delayed position updates",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 43,
+    "title": "Missing callsign or identity",
+    "category": "Data resilience",
+    "description": "Incomplete data is handled without inventing identity.",
+    "tags": [
+      "missing-data",
+      "identity"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.4,
+      "data_status": "INCOMPLETE - callsigns missing",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 44,
+    "title": "Position uncertainty increases",
+    "category": "Data resilience",
+    "description": "Aircraft position is represented by an uncertainty region.",
+    "tags": [
+      "GPS",
+      "uncertainty"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": true,
+      "missing_id_fraction": 0.0,
+      "data_status": "DEGRADED - position uncertainty widened",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 45,
+    "title": "Flight API unavailable",
+    "category": "Data resilience",
+    "description": "The last snapshot is retained with a stale-data warning.",
+    "tags": [
+      "API",
+      "resilience"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 1.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "STALE - flight API unavailable, last snapshot retained",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 46,
+    "title": "Mismatched data timestamps",
+    "category": "Data resilience",
+    "description": "Flight and weather data freshness is tracked independently.",
+    "tags": [
+      "timestamps",
+      "resilience"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 8,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.3,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "MISMATCHED - flight and weather timestamps differ",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 47,
+    "title": "Route oscillation",
+    "category": "Data resilience",
+    "description": "Repeated route changes are monitored and damped in the prototype.",
+    "tags": [
+      "oscillation",
+      "replanning"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            -1,
+            1,
+            -3,
+            2
+          ],
+          "label": "Flickering restriction",
+          "from_t": 3,
+          "until_t": 6
+        },
+        {
+          "kind": "rect",
+          "rect": [
+            -1,
+            1,
+            -3,
+            2
+          ],
+          "label": "Flickering restriction",
+          "from_t": 9,
+          "until_t": 12
+        },
+        {
+          "kind": "rect",
+          "rect": [
+            -1,
+            1,
+            -3,
+            2
+          ],
+          "label": "Flickering restriction",
+          "from_t": 15,
+          "until_t": 18
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": true
+    }
+  },
+  {
+    "id": 48,
+    "title": "Emergency resolves / is cancelled",
+    "category": "Data resilience",
+    "description": "An active event clears and routes can be recomputed.",
+    "tags": [
+      "event-clear",
+      "replan"
+    ],
+    "effects": {
+      "emergencies": [
+        "MAYDAY"
+      ],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            1,
+            3,
+            -2,
+            3
+          ],
+          "label": "VIP security zone",
+          "from_t": 0,
+          "until_t": null
+        }
+      ],
+      "timeline": [
+        {
+          "t": 5,
+          "clear": {
+            "agent": 0
+          }
+        }
+      ],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 49,
+    "title": "No feasible destination",
+    "category": "Data resilience",
+    "description": "The simulator reports that no candidate satisfies current modeled constraints.",
+    "tags": [
+      "infeasible",
+      "safety"
+    ],
+    "effects": {
+      "emergencies": [
+        "MAYDAY"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": false,
+      "alt_open": false,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 50,
+    "title": "Flagship: VIP restriction + MAYDAY",
+    "category": "Combined",
+    "description": "A distress event occurs during a security restriction with normal traffic present.",
+    "tags": [
+      "compound",
+      "VIP",
+      "mayday"
+    ],
+    "effects": {
+      "emergencies": [
+        "MAYDAY"
+      ],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            1,
+            3,
+            -2,
+            3
+          ],
+          "label": "VIP security zone",
+          "from_t": 0,
+          "until_t": null
+        }
+      ],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 2,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 51,
+    "title": "Flagship: MAYDAY + medical + gusts",
+    "category": "Combined",
+    "description": "Multiple urgent cases and weather constraints compete for landing options.",
+    "tags": [
+      "compound",
+      "medical",
+      "weather"
+    ],
+    "effects": {
+      "emergencies": [
+        "MAYDAY",
+        "MEDICAL"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 2,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": [
+        18,
+        200
+      ],
+      "gust_floor": 30,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 0,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 1,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 52,
+    "title": "Flagship: multiple emergencies + runway closure",
+    "category": "Combined",
+    "description": "Limited runway availability intersects multiple urgent requests.",
+    "tags": [
+      "compound",
+      "runway",
+      "capacity"
+    ],
+    "effects": {
+      "emergencies": [
+        "MAYDAY",
+        "7700"
+      ],
+      "hazards": [],
+      "timeline": [],
+      "runways": 1,
+      "runways_after": [
+        6,
+        0
+      ],
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 2,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 53,
+    "title": "Flagship: moving storm + cascading diversions",
+    "category": "Combined",
+    "description": "A moving hazard redirects traffic and triggers a second event.",
+    "tags": [
+      "compound",
+      "storm",
+      "cascade"
+    ],
+    "effects": {
+      "emergencies": [],
+      "hazards": [
+        {
+          "kind": "storm",
+          "label": "Moving thunderstorm cell",
+          "from_t": 0,
+          "until_t": null,
+          "start": [
+            -5,
+            3
+          ],
+          "velocity": [
+            0.7,
+            -0.2
+          ],
+          "size": 1
+        }
+      ],
+      "timeline": [
+        {
+          "t": 8,
+          "declare": {
+            "agent": 3,
+            "type": "7700"
+          }
+        }
+      ],
+      "runways": 1,
+      "runways_after": null,
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": null,
+      "gust_floor": null,
+      "conservative_wind": 0,
+      "mixed_fleet": false,
+      "extra_traffic": 3,
+      "stale_fraction": 0.0,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "LIVE",
+      "overweight": 0,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  },
+  {
+    "id": 54,
+    "title": "Flagship: full-system stress test",
+    "category": "Combined",
+    "description": "A compound scenario combines restrictions, emergencies, weather, runway and data issues.",
+    "tags": [
+      "compound",
+      "stress-test"
+    ],
+    "effects": {
+      "emergencies": [
+        "MAYDAY",
+        "MEDICAL"
+      ],
+      "hazards": [
+        {
+          "kind": "rect",
+          "rect": [
+            1,
+            3,
+            -2,
+            3
+          ],
+          "label": "VIP security zone",
+          "from_t": 0,
+          "until_t": null
+        },
+        {
+          "kind": "storm",
+          "label": "Moving thunderstorm cell",
+          "from_t": 0,
+          "until_t": null,
+          "start": [
+            -5,
+            -3
+          ],
+          "velocity": [
+            0.6,
+            0.25
+          ],
+          "size": 1
+        }
+      ],
+      "timeline": [],
+      "runways": 1,
+      "runways_after": [
+        10,
+        0
+      ],
+      "alt_runways": 2,
+      "primary_open": true,
+      "alt_open": true,
+      "primary_services": true,
+      "runway_length_m": 3400,
+      "alt_runway_length_m": 3000,
+      "occupancy_extra": 0,
+      "alt_occupancy_extra": 0,
+      "wind_floor": [
+        14,
+        190
+      ],
+      "gust_floor": 24,
+      "conservative_wind": 4,
+      "mixed_fleet": false,
+      "extra_traffic": 3,
+      "stale_fraction": 0.3,
+      "uncertain_all": false,
+      "missing_id_fraction": 0.0,
+      "data_status": "DEGRADED - stale positions + conservative weather",
+      "overweight": 1,
+      "low_fuel": 0,
+      "damping_demo": false
+    }
+  }
+]
