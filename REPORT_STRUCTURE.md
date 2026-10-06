@@ -80,7 +80,7 @@ Every section ends with a **status table**: factor · aviation principle · impl
 4.10 Negative scenarios: what happens if constraints are ignored — **shortened to a boxed illustrative list** (tailwind, contaminated runway, restricted airspace, ignored separation, distant airport in an emergency), each pointing to the scenario that tests the safe behaviour
 4.11 Implementation-status matrix (one table for the whole chapter) and what extra data would be needed for realism
 
-> Note on 4.3: the simulator currently *forces a hold* for overweight emergency arrivals. The report must describe that honestly, and either (a) the model is changed to compare land-now / hold / divert, or (b) the limitation is stated in 4.3.10 and 7.5.
+> Note on 4.3: the simulator now **compares land-now, hold and divert** for overweight emergency arrivals (it no longer forces a hold). Time-critical emergencies (MAYDAY, MEDICAL, FUEL, 7500, 7700, TECH) take the earliest feasible landing and are flagged overweight for inspection; non-urgent ones (PAN-PAN, 7600) prefer an option that reaches the mass limit first. The rule, per-option reasons and the illustrative landing-distance factor must be described in 4.3.10 and 3.10, and tagged `[SIMP]`.
 
 ## Chapter 5 — System Architecture and Implementation
 5.1 System overview and user workflow
@@ -93,7 +93,7 @@ Every section ends with a **status table**: factor · aviation principle · impl
 5.8 Visualisation: original vs revised routes, time slider, hazards as planner cells
 5.9 Metrics and output panel (what each number means and how it is computed)
 5.10 Runway/approach outputs and their simplifications
-5.11 Testing and verification (41 unit tests; conflict-free sweep over 648 runs; what the tests do *not* prove)
+5.11 Testing and verification (51 unit tests; conflict-free sweeps over 648 + 192 runs; what the tests do *not* prove)
 5.12 Implementation challenges and lessons (two bugs found by testing: swap-edge reservation, landing at the closure step — useful honest content)
 5.13 Chapter summary
 > Merged: the five repeated "scenario 1…5" walkthroughs of the old 5.7 become one worked example here; the others are experiments in Chapter 6.
@@ -108,7 +108,7 @@ Every section ends with a **status table**: factor · aviation principle · impl
 6.7 **Multi-aircraft coordination** (independent vs sequential vs prioritised; conflicts, delay, unserved emergencies; scenarios 27, 32, 36, 37)
 6.8 Runway capacity and diversion (scenarios 12, 24, 28, 30, 35, 52)
 6.9 Data-resilience experiments (scenarios 42–47; widened footprints, conservative weather, damping)
-6.10 Landing-mass experiments — **proposed unless the extension is built**; seeded overweight cases (scenarios 6, 33, 38, 51, 54) reported as illustrations only
+6.10 Landing-mass experiments — land-now vs hold vs divert on seeded overweight cases (scenarios 2, 6, 33, 38, 40, 51, 54); scenario 40 shows the decision flipping from hold to land-now when a PAN-PAN escalates to MAYDAY; reported as illustrations of the decision rule `[SIMP]`, not validated aviation outcomes
 6.11 Failure and infeasible cases (scenarios 39, 49, 16): search failure vs operational infeasibility
 6.12 Compound/flagship scenarios (50–54)
 6.13 Summary of results, answers to RQ1–RQ5 (fills Table 1.1)
@@ -185,5 +185,5 @@ Verified academic sources only (A\* origin; cooperative pathfinding; CBS; aircra
 
 ## Things I need from you
 1. Your "awesome points" — send them and I'll place each one in the right section.
-2. Landing mass: build the land-now / hold / divert comparison, or keep the forced hold and document it?
+2. ~~Landing mass~~ done: the land-now / hold / divert comparison is implemented.
 3. Build the BFS/UCS/Greedy baselines and the experiment script (needed for 6.6 and most of Chapter 6)?

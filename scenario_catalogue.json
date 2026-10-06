@@ -74,7 +74,7 @@
       "uncertain_all": false,
       "missing_id_fraction": 0.0,
       "data_status": "LIVE",
-      "overweight": 0,
+      "overweight": 1,
       "low_fuel": 0,
       "damping_demo": false
     }
@@ -1704,7 +1704,7 @@
       "uncertain_all": false,
       "missing_id_fraction": 0.0,
       "data_status": "LIVE",
-      "overweight": 0,
+      "overweight": 1,
       "low_fuel": 0,
       "damping_demo": false
     }

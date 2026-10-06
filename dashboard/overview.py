@@ -62,18 +62,35 @@ def _landing_cases(result):
     cases = [a for a in result["aircraft"] if a["landing_case"]]
     if not cases:
         return
-    st.markdown("#### Overweight landing cases (scenario-assigned, illustrative)")
-    st.caption("Generated deterministically from the run seed. The planner treats the required fuel reduction as a "
-               "minimum landing time, so the aircraft holds and other traffic is planned around it. "
-               "Mass limits and rates are class-level illustrations, not aircraft data.")
+    st.markdown("#### Overweight landing decisions: land now, hold or divert (illustrative)")
+    st.caption("Seeded cases. For each aircraft the planner plans land-now and hold at both airports (traffic, hazards, "
+               "runway slots and fuel all apply), discards options the runway cannot support at that mass, then applies an "
+               "explicit rule: a time-critical emergency lands at the earliest feasible slot (an overweight landing is "
+               "accepted and flagged for inspection); otherwise an option that reaches the limit before touchdown is "
+               "preferred. Mass limits and rates are class-level illustrations, not aircraft data, and this is not an "
+               "operational procedure - the decision belongs to the crew and ATC.")
     rows = []
     for a in cases:
-        c = a["landing_case"]
-        rows.append({"Aircraft": a["callsign"], "Type": a["profile"], "Predicted landing mass (t)": c["predicted_landing_mass_t"],
-                     "Illustrative limit (t)": c["landing_mass_limit_t"], "Excess (t)": c["excess_t"], "Method": c["method"],
-                     "Needed (min)": c["needed_minutes"], "Hold applied (min)": c["hold_steps"] * STEP_MINUTES,
-                     "Capped?": "yes" if c["capped"] else "no", "Result": a["status"]})
+        c, d = a["landing_case"], a["landing_decision"] or {}
+        rows.append({"Aircraft": a["callsign"], "Type": a["profile"], "Event": a["event"],
+                     "Predicted landing mass (t)": c["predicted_landing_mass_t"],
+                     "Illustrative limit (t)": c["landing_mass_limit_t"], "Excess (t)": c["excess_t"],
+                     "Reduction": c["method"],
+                     "Decision": (d.get("mode") or "none").replace("_", " ") + (f" at {d['airport']}" if d.get("airport") else ""),
+                     "Excess at touchdown (t)": d.get("excess_at_touchdown_t"),
+                     "Result": a["status"], "Why": d.get("rationale", "")})
     st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True)
+    with st.expander("Options considered for each aircraft"):
+        for a in cases:
+            d = a["landing_decision"]
+            if not d:
+                continue
+            st.markdown(f"**{a['callsign']}** ({a['profile']}, {a['event']})")
+            st.dataframe(pd.DataFrame([{
+                "Airport": o["airport"], "Option": o["mode"].replace("_", " "), "Touchdown step": o["arrival"],
+                "Feasible": o["feasible"], "Overweight at touchdown": o["overweight_landing"],
+                "Excess at touchdown (t)": o["excess_at_touchdown_t"], "Reason if not feasible": o["reason"] or "",
+            } for o in d["options"]]), width="stretch", hide_index=True)
 
 
 def render(result, selected, settings):

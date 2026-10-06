@@ -14,7 +14,7 @@ from dataclasses import dataclass, field
 from .grid import (ALT, AIRPORT_NODES, CELL_KM, DEFAULT_FUEL_STEPS, GRID_MAX, GRID_MIN, HORIZON, PRIMARY,
                    PROFILE_LIMITS, PROFILES, STEP_MINUTES, Hazards, RunwayBook, cell_bounds, crosswind_kt,
                    to_latlon)
-from .landing import assign_overweight_case
+from .landing import assign_overweight_case, choose_option, excess_at_arrival, landing_distance_required_m
 from .planner import (Reservations, count_conflicts, plan_path, priority_key)
 from .scenarios import get_effects, get_scenario
 
@@ -42,6 +42,7 @@ class Agent:
     identity_missing: bool = False
     hold_steps: int = 0
     landing_case: dict = None
+    landing_decision: dict = None   # chosen land-now/hold option and the alternatives considered
     force_replan: bool = False
     track: list = field(default_factory=list)       # node at each absolute step, from step 0
     airport: str = None             # airport actually planned for (arrivals)
@@ -115,7 +116,6 @@ def build_fleet(fx, n, rng):
         if a.event and a.kind == "arrival" and overweight_left > 0:
             overweight_left -= 1
             a.landing_case = assign_overweight_case(a.profile, rng)
-            a.hold_steps = a.landing_case["hold_steps"]
         agents.append(a)
     return agents
 
@@ -161,6 +161,63 @@ class _Round:
         return [ap for ap in (PRIMARY, ALT) if self.eligible(a, ap)]
 
     # ---- one aircraft ------------------------------------------------------
+    def _runway_length(self, airport):
+        return self.fx["runway_length_m"] if airport == PRIMARY else self.fx["alt_runway_length_m"]
+
+    def _overweight_options(self, a, te, res, book, horizon, coordinated):
+        """Plan land-now and hold at every eligible airport; return option dicts (see landing.choose_option)."""
+        case, pos, options = a.landing_case, a.track[te], []
+        for airport in self.options(a):
+            occ = self.occupancy_for(a, airport)
+            goal = AIRPORT_NODES[airport]
+            for mode, min_arrival in (("land_now", 0), ("hold", case["hold_steps"])):
+                if mode == "hold" and case["hold_steps"] == 0:
+                    continue
+                path = plan_path(pos, te, goal, hazards=self.hazards, known_t=te, res=res, wind=self.wind,
+                                 horizon=horizon, runways=book if coordinated else None, airport=airport,
+                                 occupancy=occ, min_arrival=min_arrival, use_reservations=coordinated)
+                option = {"airport": airport, "mode": mode, "feasible": False, "reason": None, "arrival": None,
+                          "overweight_landing": None, "excess_at_touchdown_t": None, "plan": None}
+                if path is None:
+                    option["reason"] = "no legal path/runway slot within endurance"
+                else:
+                    arrival = len(path) - 1
+                    option.update(arrival=arrival, plan=(airport, path, occ),
+                                  excess_at_touchdown_t=excess_at_arrival(case, arrival))
+                    option["overweight_landing"] = option["excess_at_touchdown_t"] > 0
+                    need = landing_distance_required_m(PROFILE_LIMITS[a.profile]["runway_m"], case, arrival)
+                    if need > self._runway_length(airport):
+                        option["reason"] = ("landing distance ~%.0f m at that mass exceeds runway (%.0f m)"
+                                            % (need, self._runway_length(airport)))
+                    else:
+                        option["feasible"] = True
+                options.append(option)
+        return options
+
+    @staticmethod
+    def _public_options(options):
+        keys = ("airport", "mode", "arrival", "feasible", "reason", "overweight_landing", "excess_at_touchdown_t")
+        return [{k: o[k] for k in keys} for o in options]
+
+    def _plan_overweight(self, a, te, res, book, coordinated):
+        for relax_fuel in (False, True):
+            horizon = HORIZON if relax_fuel else min(HORIZON, a.fuel)
+            options = self._overweight_options(a, te, res, book, horizon, coordinated)
+            chosen, why = choose_option(options, a.event)
+            if chosen:
+                a.landing_decision = {
+                    "mode": chosen["mode"], "airport": chosen["airport"], "rationale": why, "event": a.event,
+                    "overweight_landing": chosen["overweight_landing"],
+                    "excess_at_touchdown_t": chosen["excess_at_touchdown_t"],
+                    "options": self._public_options(options),
+                }
+                a.hold_steps = a.landing_case["hold_steps"] if chosen["mode"] == "hold" else 0
+                return chosen["plan"], ("INSUFFICIENT FUEL" if relax_fuel else None)
+            a.landing_decision = {"mode": None, "airport": None, "rationale": why, "event": a.event,
+                                  "overweight_landing": None, "excess_at_touchdown_t": None,
+                                  "options": self._public_options(options)}
+        return None, "NO FEASIBLE PLAN"
+
     def _plan_agent(self, a, te, res, book, known_change):
         pos = a.track[te]
         horizon = min(HORIZON, a.fuel)
@@ -169,6 +226,8 @@ class _Round:
         if not targets:
             return None, "NO FEASIBLE DESTINATION"
         coordinated = self.mode != "independent"
+        if a.landing_case and a.kind == "arrival":
+            return self._plan_overweight(a, te, res, book, coordinated)
         for relax_fuel in (False, True):
             for airport, goal in targets:
                 occ = self.occupancy_for(a, airport) if airport else 0
@@ -176,7 +235,7 @@ class _Round:
                     pos, te, goal, hazards=self.hazards, known_t=te, res=res, wind=self.wind,
                     horizon=HORIZON if relax_fuel else horizon,
                     runways=book if (airport and coordinated) else None, airport=airport,
-                    occupancy=occ, min_arrival=a.hold_steps, use_reservations=coordinated)
+                    occupancy=occ, min_arrival=0, use_reservations=coordinated)
                 if path:
                     return (airport, path, occ), ("INSUFFICIENT FUEL" if relax_fuel else None)
         return None, "NO FEASIBLE PLAN"
@@ -352,6 +411,10 @@ class SimulationEngine:
             "total_delay_min": sum(max(0, a["delay_steps"]) for a in flown) * STEP_MINUTES,
             "extra_distance_km": round(sum(a["distance_km"] - a["original_distance_km"] for a in flown), 1),
             "route_revisions": sum(a["revisions"] for a in out_aircraft),
+            "overweight_landings": sum(1 for a in out_aircraft if not a["failed"] and a["landing_decision"]
+                                       and a["landing_decision"]["overweight_landing"]),
+            "overweight_holds": sum(1 for a in out_aircraft if not a["failed"] and a["landing_decision"]
+                                    and a["landing_decision"]["mode"] == "hold"),
             "planning_ms": elapsed,
             "wind_speed": wind[0], "gust_speed": wind[1], "wind_direction": wind[2],
             "crosswind_kt": round(run.xwind, 1),
@@ -391,6 +454,11 @@ class SimulationEngine:
             status = "DELAYED (holding)"
         else:
             status = "UNCHANGED"
+        dec = a.landing_decision
+        if dec and dec["mode"] and not a.failed and dec["overweight_landing"]:
+            status += " · OVERWEIGHT LANDING (inspection)"
+        elif dec and dec["mode"] == "hold" and not a.failed:
+            status += " · held to reduce mass"
         if a.event:
             status = "EMERGENCY · " + status
         return {
@@ -405,6 +473,7 @@ class SimulationEngine:
             "arrival_step": arrival, "original_arrival_step": orig_arrival, "delay_steps": delay,
             "wait_steps": waits, "destination": (a.airport or "EXIT") if not a.failed else None,
             "fuel_steps": a.fuel, "uncertain_position": a.uncertain, "identity_missing": a.identity_missing,
-            "hold_steps": a.hold_steps, "landing_case": a.landing_case, "revisions": a.revisions,
+            "hold_steps": a.hold_steps, "landing_case": a.landing_case, "landing_decision": a.landing_decision,
+            "revisions": a.revisions,
             "cost": distance,
         }

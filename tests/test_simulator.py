@@ -8,7 +8,7 @@ from simulator.baselines import ALGORITHMS, path_cost, search
 from simulator.benchmark import run_benchmark, summarize_benchmark
 from simulator.engine import PLANNERS, SimulationEngine, effective_wind
 from simulator.grid import (ALT, PRIMARY, Hazards, RunwayBook, cell_bounds, crosswind_kt, in_grid, to_latlon)
-from simulator.landing import assign_overweight_case
+from simulator.landing import assign_overweight_case, choose_option, excess_at_arrival, landing_distance_required_m
 from simulator.live_data import fetch_opensky, parse_state_vector
 from simulator.planner import Reservations, count_conflicts, plan_path, wind_multiplier
 from simulator.scenarios import EFFECTS, SCENARIOS, catalogue_with_effects, get_effects, get_scenario, hazard
@@ -236,14 +236,74 @@ class EngineScenarioTests(unittest.TestCase):
             if a["emergency"] and not a["failed"]:
                 self.assertEqual(a["destination"], ALT)
 
-    def test_overweight_arrival_cannot_land_before_hold_ends(self):
-        found = False
+    def test_overweight_decision_compares_land_now_hold_and_divert(self):
+        found = 0
         for s in range(6):
             for a in run(6, 12, seed=s)["aircraft"]:
-                if a["landing_case"] and not a["failed"]:
-                    found = True
-                    self.assertGreaterEqual(a["arrival_step"], a["hold_steps"])
-        self.assertTrue(found)
+                d = a["landing_decision"]
+                if not d:
+                    continue
+                found += 1
+                modes = {(o["airport"], o["mode"]) for o in d["options"]}
+                self.assertIn((PRIMARY, "land_now"), modes)
+                self.assertIn((ALT, "land_now"), modes)
+                self.assertTrue(any(m == "hold" for _, m in modes))
+                self.assertTrue(d["rationale"])
+                if not a["failed"]:
+                    chosen = [o for o in d["options"] if (o["airport"], o["mode"]) == (d["airport"], d["mode"])][0]
+                    self.assertEqual(a["arrival_step"], chosen["arrival"])      # the plan IS the chosen option
+        self.assertGreater(found, 0)
+
+    def test_time_critical_emergency_lands_now_even_if_overweight(self):
+        landed_overweight = 0
+        for s in range(6):
+            for a in run(6, 12, seed=s)["aircraft"]:            # scenario 6 = engine failure (time-critical)
+                d = a["landing_decision"]
+                if d and not a["failed"]:
+                    self.assertEqual(d["mode"], "land_now")
+                    earliest = min(o["arrival"] for o in d["options"] if o["feasible"])
+                    self.assertEqual(a["arrival_step"], earliest)
+                    landed_overweight += bool(d["overweight_landing"])
+                    if d["overweight_landing"]:
+                        self.assertIn("OVERWEIGHT LANDING", a["status"])
+        self.assertGreater(landed_overweight, 0)
+
+    def test_non_urgent_overweight_aircraft_reduces_mass_first(self):
+        holds = 0
+        for s in range(5):
+            for a in run(2, 12, seed=s)["aircraft"]:            # scenario 2 = PAN-PAN with an overweight arrival
+                d = a["landing_decision"]
+                if d and not a["failed"]:
+                    within_limit_exists = any(o["feasible"] and not o["overweight_landing"] for o in d["options"])
+                    if within_limit_exists:
+                        self.assertFalse(d["overweight_landing"])      # never lands overweight when it can avoid it
+                    holds += d["mode"] == "hold"
+        self.assertGreater(holds, 0)                                   # and it does choose to hold in some runs
+
+    def test_escalation_flips_decision_from_hold_to_land_now(self):
+        r = run(40, 10, seed=0)                                  # PAN-PAN escalates to MAYDAY at step 5
+        d = r["aircraft"][0]["landing_decision"]
+        self.assertEqual(d["event"], "MAYDAY")
+        self.assertEqual(d["mode"], "land_now")
+
+    def test_choose_option_rules(self):
+        def opt(airport, mode, arrival, ow, feasible=True):
+            return {"airport": airport, "mode": mode, "arrival": arrival, "overweight_landing": ow, "feasible": feasible}
+        options = [opt(PRIMARY, "land_now", 5, True), opt(PRIMARY, "hold", 14, False), opt(ALT, "land_now", 9, True)]
+        self.assertEqual(choose_option(options, "MAYDAY")[0]["arrival"], 5)
+        self.assertEqual(choose_option(options, "PAN-PAN")[0]["mode"], "hold")
+        none_within = [opt(PRIMARY, "land_now", 5, True), opt(PRIMARY, "hold", 14, True)]
+        self.assertEqual(choose_option(none_within, "PAN-PAN")[0]["arrival"], 5)
+        self.assertIsNone(choose_option([opt(PRIMARY, "land_now", 5, True, feasible=False)], "MAYDAY")[0])
+        tie = [opt(ALT, "land_now", 5, True), opt(PRIMARY, "land_now", 5, True)]
+        self.assertEqual(choose_option(tie, "MAYDAY")[0]["airport"], PRIMARY)
+
+    def test_landing_distance_grows_with_excess_mass(self):
+        case = assign_overweight_case("Narrowbody", __import__("random").Random(1))
+        self.assertGreater(landing_distance_required_m(2000, case, 0), 2000)
+        self.assertAlmostEqual(landing_distance_required_m(2000, case, 10 ** 6), 2000)   # mass reduced to the limit
+        self.assertEqual(excess_at_arrival(case, 10 ** 6), 0.0)
+        self.assertEqual(excess_at_arrival(case, 0), case["excess_t"])
 
     def test_landing_case_is_seeded_and_consistent(self):
         import random

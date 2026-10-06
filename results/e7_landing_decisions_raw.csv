@@ -1,0 +1,193 @@
+scenario,seed,event,profile,mode,airport,overweight_at_touchdown,touchdown_step,primary_hold_touchdown_step
+2,0,PAN-PAN,Narrowbody,hold,PRIMARY,False,25,25
+2,1,PAN-PAN,Narrowbody,hold,PRIMARY,False,12,12
+2,2,PAN-PAN,Turboprop,hold,PRIMARY,False,20,20
+2,3,PAN-PAN,Narrowbody,land_now,PRIMARY,True,5,25
+2,4,PAN-PAN,Regional jet,hold,PRIMARY,False,7,7
+2,5,PAN-PAN,Regional jet,hold,PRIMARY,False,16,16
+2,6,PAN-PAN,Widebody,hold,PRIMARY,False,9,9
+2,7,PAN-PAN,Turboprop,hold,PRIMARY,False,7,7
+2,8,PAN-PAN,Narrowbody,hold,PRIMARY,False,18,18
+2,9,PAN-PAN,Widebody,land_now,PRIMARY,False,5,5
+2,10,PAN-PAN,Narrowbody,hold,PRIMARY,False,14,14
+2,11,PAN-PAN,Narrowbody,hold,PRIMARY,False,18,18
+2,12,PAN-PAN,Regional jet,land_now,PRIMARY,True,5,25
+2,13,PAN-PAN,Widebody,hold,PRIMARY,False,7,7
+2,14,PAN-PAN,Regional jet,hold,PRIMARY,False,16,16
+2,15,PAN-PAN,Regional jet,hold,PRIMARY,False,9,9
+2,16,PAN-PAN,Narrowbody,hold,PRIMARY,False,7,7
+2,17,PAN-PAN,Narrowbody,hold,PRIMARY,False,12,12
+2,18,PAN-PAN,Regional jet,land_now,PRIMARY,True,5,25
+2,19,PAN-PAN,Widebody,hold,PRIMARY,False,9,9
+2,20,PAN-PAN,Widebody,hold,PRIMARY,False,9,9
+2,21,PAN-PAN,Narrowbody,hold,PRIMARY,False,23,23
+2,22,PAN-PAN,Narrowbody,hold,PRIMARY,False,9,9
+2,23,PAN-PAN,Narrowbody,land_now,PRIMARY,True,5,25
+2,24,PAN-PAN,Widebody,hold,PRIMARY,False,9,9
+2,25,PAN-PAN,Turboprop,land_now,ALT,True,1,25
+2,26,PAN-PAN,Turboprop,hold,PRIMARY,False,20,20
+2,27,PAN-PAN,Narrowbody,hold,PRIMARY,False,9,9
+2,28,PAN-PAN,Narrowbody,hold,PRIMARY,False,16,16
+2,29,PAN-PAN,Regional jet,land_now,PRIMARY,True,5,25
+6,0,TECH,Widebody,land_now,ALT,False,4,5
+6,1,TECH,Turboprop,land_now,ALT,True,3,16
+6,2,TECH,Turboprop,land_now,PRIMARY,True,5,7
+6,3,TECH,Regional jet,land_now,ALT,True,4,25
+6,4,TECH,Widebody,land_now,ALT,True,1,7
+6,5,TECH,Regional jet,land_now,ALT,True,3,25
+6,6,TECH,Widebody,land_now,ALT,True,3,9
+6,7,TECH,Widebody,land_now,PRIMARY,False,5,5
+6,8,TECH,Turboprop,land_now,PRIMARY,True,5,9
+6,9,TECH,Narrowbody,land_now,PRIMARY,True,5,7
+6,10,TECH,Widebody,land_now,PRIMARY,True,5,10
+6,11,TECH,Widebody,land_now,PRIMARY,True,5,10
+6,12,TECH,Regional jet,land_now,PRIMARY,True,5,12
+6,13,TECH,Turboprop,land_now,PRIMARY,True,5,25
+6,14,TECH,Regional jet,land_now,PRIMARY,True,5,9
+6,15,TECH,Turboprop,land_now,ALT,True,3,23
+6,16,TECH,Narrowbody,land_now,ALT,True,4,25
+6,17,TECH,Turboprop,land_now,PRIMARY,True,5,16
+6,18,TECH,Turboprop,land_now,ALT,True,3,12
+6,19,TECH,Turboprop,land_now,PRIMARY,True,5,25
+6,20,TECH,Regional jet,land_now,PRIMARY,True,5,7
+6,21,TECH,Narrowbody,land_now,PRIMARY,True,5,7
+6,22,TECH,Regional jet,land_now,ALT,True,2,20
+6,23,TECH,Narrowbody,land_now,PRIMARY,True,5,18
+6,24,TECH,Turboprop,land_now,PRIMARY,True,5,18
+6,25,TECH,Turboprop,land_now,PRIMARY,True,5,20
+6,26,TECH,Narrowbody,land_now,PRIMARY,True,5,25
+6,27,TECH,Narrowbody,land_now,PRIMARY,True,5,23
+6,28,TECH,Widebody,land_now,PRIMARY,True,5,9
+6,29,TECH,Regional jet,land_now,PRIMARY,True,5,25
+33,0,MAYDAY,Turboprop,land_now,ALT,True,1,18
+33,1,MAYDAY,Regional jet,land_now,ALT,True,2,12
+33,2,MAYDAY,Turboprop,land_now,PRIMARY,True,5,23
+33,3,MEDICAL,Regional jet,land_now,PRIMARY,True,5,25
+33,4,MAYDAY,Widebody,land_now,PRIMARY,True,5,6
+33,5,MAYDAY,Narrowbody,land_now,ALT,True,4,20
+33,6,MEDICAL,Turboprop,land_now,PRIMARY,True,5,20
+33,7,MAYDAY,Regional jet,land_now,ALT,True,2,16
+33,8,MAYDAY,Regional jet,land_now,PRIMARY,True,5,25
+33,9,MEDICAL,Turboprop,land_now,PRIMARY,True,5,14
+33,10,MAYDAY,Narrowbody,land_now,PRIMARY,True,5,18
+33,11,MAYDAY,Turboprop,land_now,ALT,True,3,9
+33,12,MAYDAY,Regional jet,land_now,ALT,True,1,25
+33,13,MAYDAY,Narrowbody,land_now,PRIMARY,True,5,20
+33,14,MEDICAL,Regional jet,land_now,PRIMARY,True,5,25
+33,15,MEDICAL,Narrowbody,land_now,PRIMARY,True,5,25
+33,16,MAYDAY,Widebody,land_now,ALT,True,3,7
+33,17,MAYDAY,Narrowbody,land_now,ALT,True,2,25
+33,18,MEDICAL,Narrowbody,land_now,PRIMARY,True,5,25
+33,19,MAYDAY,Narrowbody,land_now,ALT,True,4,9
+33,20,MAYDAY,Narrowbody,land_now,PRIMARY,True,5,16
+33,21,MAYDAY,Narrowbody,land_now,ALT,True,4,25
+33,22,MAYDAY,Regional jet,land_now,ALT,True,1,23
+33,23,MEDICAL,Regional jet,land_now,ALT,True,3,18
+33,24,MAYDAY,Widebody,land_now,PRIMARY,True,5,9
+33,25,MEDICAL,Turboprop,land_now,PRIMARY,True,5,14
+33,26,MEDICAL,Narrowbody,land_now,PRIMARY,True,5,9
+33,27,MAYDAY,Widebody,land_now,ALT,True,4,8
+33,28,MAYDAY,Widebody,land_now,PRIMARY,False,5,5
+33,29,MAYDAY,Regional jet,land_now,ALT,True,3,25
+38,0,MAYDAY,Regional jet,land_now,PRIMARY,True,5,9
+38,1,7700,Turboprop,land_now,PRIMARY,True,5,14
+38,2,7700,Turboprop,land_now,PRIMARY,True,5,18
+38,3,MAYDAY,Turboprop,land_now,PRIMARY,True,5,23
+38,4,7700,Widebody,land_now,PRIMARY,True,5,9
+38,5,MAYDAY,Widebody,land_now,PRIMARY,True,5,6
+38,6,MAYDAY,Regional jet,land_now,PRIMARY,True,5,25
+38,7,MAYDAY,Narrowbody,land_now,PRIMARY,True,5,25
+38,8,7700,Widebody,land_now,PRIMARY,True,5,7
+38,9,7700,Widebody,land_now,PRIMARY,False,5,5
+38,10,MAYDAY,Turboprop,land_now,ALT,True,2,18
+38,11,7700,Widebody,land_now,PRIMARY,True,5,10
+38,12,7700,Narrowbody,land_now,ALT,True,2,25
+38,13,MAYDAY,Turboprop,land_now,PRIMARY,True,5,9
+38,14,7700,Narrowbody,land_now,PRIMARY,True,5,9
+38,15,PAN-PAN,Widebody,land_now,PRIMARY,False,7,7
+38,16,MAYDAY,Widebody,land_now,ALT,True,2,9
+38,17,MAYDAY,Narrowbody,land_now,ALT,True,3,23
+38,18,MAYDAY,Widebody,land_now,PRIMARY,True,5,9
+38,19,PAN-PAN,Narrowbody,hold,PRIMARY,False,9,9
+38,20,PAN-PAN,Narrowbody,hold,PRIMARY,False,12,12
+38,21,MAYDAY,Regional jet,land_now,ALT,True,1,7
+38,22,PAN-PAN,Turboprop,hold,PRIMARY,False,23,23
+38,23,MAYDAY,Narrowbody,land_now,ALT,True,3,25
+38,24,PAN-PAN,Turboprop,hold,PRIMARY,False,14,14
+38,25,7700,Turboprop,land_now,ALT,True,4,23
+38,26,MAYDAY,Narrowbody,land_now,PRIMARY,True,5,23
+38,27,MAYDAY,Narrowbody,land_now,PRIMARY,True,5,25
+38,28,PAN-PAN,Narrowbody,hold,PRIMARY,False,23,23
+38,29,7700,Widebody,land_now,ALT,True,2,7
+40,0,MAYDAY,Regional jet,land_now,PRIMARY,True,1,20
+40,1,MAYDAY,Narrowbody,land_now,PRIMARY,True,2,9
+40,2,MAYDAY,Turboprop,land_now,PRIMARY,True,1,11
+40,3,MAYDAY,Regional jet,land_now,PRIMARY,True,1,2
+40,4,MAYDAY,Narrowbody,land_now,PRIMARY,True,2,11
+40,5,MAYDAY,Widebody,land_now,PRIMARY,True,2,5
+40,6,MAYDAY,Widebody,land_now,PRIMARY,True,1,2
+40,7,MAYDAY,Widebody,land_now,PRIMARY,True,1,3
+40,8,MAYDAY,Widebody,land_now,PRIMARY,True,1,1
+40,9,MAYDAY,Regional jet,land_now,PRIMARY,True,2,9
+40,10,MAYDAY,Narrowbody,land_now,PRIMARY,True,0,13
+40,11,MAYDAY,Narrowbody,land_now,PRIMARY,True,2,15
+40,12,MAYDAY,Narrowbody,land_now,PRIMARY,True,2,18
+40,13,MAYDAY,Turboprop,land_now,PRIMARY,True,1,7
+40,14,MAYDAY,Regional jet,land_now,PRIMARY,True,0,20
+40,15,MAYDAY,Widebody,land_now,ALT,True,2,3
+40,16,MAYDAY,Narrowbody,land_now,PRIMARY,True,1,15
+40,17,MAYDAY,Narrowbody,land_now,PRIMARY,True,0,20
+40,18,MAYDAY,Turboprop,land_now,PRIMARY,True,3,7
+40,19,MAYDAY,Narrowbody,land_now,PRIMARY,True,4,13
+40,20,MAYDAY,Turboprop,land_now,PRIMARY,True,1,15
+40,21,MAYDAY,Narrowbody,land_now,PRIMARY,True,2,9
+40,22,MAYDAY,Turboprop,land_now,PRIMARY,True,1,9
+40,23,PAN-PAN,Narrowbody,land_now,ALT,True,4,25
+40,24,MAYDAY,Widebody,land_now,PRIMARY,True,1,1
+40,25,MAYDAY,Regional jet,land_now,PRIMARY,True,0,20
+40,26,MAYDAY,Narrowbody,land_now,PRIMARY,True,1,18
+40,27,MAYDAY,Turboprop,land_now,PRIMARY,True,2,7
+40,28,MAYDAY,Turboprop,land_now,PRIMARY,True,1,9
+40,29,MAYDAY,Turboprop,land_now,PRIMARY,True,1,4
+51,1,MAYDAY,Regional jet,land_now,ALT,True,2,18
+51,2,MAYDAY,Regional jet,land_now,PRIMARY,True,5,20
+51,3,MAYDAY,Regional jet,land_now,PRIMARY,True,5,20
+51,5,MEDICAL,Widebody,land_now,ALT,True,4,5
+51,6,MEDICAL,Regional jet,land_now,PRIMARY,True,5,18
+51,7,MAYDAY,Regional jet,land_now,PRIMARY,True,5,20
+51,9,MAYDAY,Regional jet,land_now,PRIMARY,True,5,25
+51,10,MAYDAY,Widebody,land_now,PRIMARY,False,5,5
+51,11,MEDICAL,Widebody,land_now,PRIMARY,True,5,9
+51,13,MEDICAL,Regional jet,land_now,PRIMARY,True,5,25
+51,14,MEDICAL,Narrowbody,land_now,PRIMARY,True,5,25
+51,15,MEDICAL,Regional jet,land_now,PRIMARY,True,5,12
+51,16,MAYDAY,Widebody,land_now,ALT,True,2,9
+51,17,MAYDAY,Widebody,land_now,ALT,True,1,5
+51,18,MAYDAY,Widebody,land_now,ALT,True,2,5
+51,19,MEDICAL,Regional jet,land_now,PRIMARY,True,5,18
+51,20,MAYDAY,Regional jet,land_now,PRIMARY,True,5,25
+51,21,MAYDAY,Regional jet,land_now,PRIMARY,True,5,25
+51,22,MAYDAY,Narrowbody,land_now,PRIMARY,True,5,12
+51,23,MAYDAY,Widebody,land_now,ALT,True,3,8
+51,24,MAYDAY,Regional jet,land_now,PRIMARY,True,5,18
+51,25,MAYDAY,Regional jet,land_now,ALT,True,2,12
+51,26,MEDICAL,Widebody,land_now,PRIMARY,True,5,7
+54,0,MEDICAL,Widebody,land_now,PRIMARY,False,8,8
+54,1,MEDICAL,Regional jet,land_now,PRIMARY,True,5,7
+54,3,MAYDAY,Regional jet,land_now,ALT,True,1,18
+54,7,MAYDAY,Widebody,land_now,PRIMARY,True,6,9
+54,8,MEDICAL,Narrowbody,land_now,PRIMARY,True,5,25
+54,9,MEDICAL,Regional jet,land_now,PRIMARY,True,5,12
+54,11,MAYDAY,Widebody,land_now,ALT,True,2,12
+54,12,MEDICAL,Narrowbody,land_now,PRIMARY,True,5,25
+54,13,MAYDAY,Regional jet,land_now,PRIMARY,True,5,18
+54,14,MAYDAY,Regional jet,land_now,PRIMARY,True,5,12
+54,17,MAYDAY,Narrowbody,land_now,PRIMARY,True,5,25
+54,18,MEDICAL,Narrowbody,land_now,PRIMARY,True,5,14
+54,19,MEDICAL,Widebody,land_now,PRIMARY,True,5,8
+54,20,MAYDAY,Widebody,land_now,PRIMARY,False,5,5
+54,24,MEDICAL,Narrowbody,land_now,PRIMARY,True,8,25
+54,25,MAYDAY,Narrowbody,land_now,ALT,True,4,25
+54,26,MEDICAL,Narrowbody,land_now,ALT,True,4,25
+54,27,MEDICAL,Regional jet,land_now,ALT,True,3,12
+54,28,MEDICAL,Widebody,land_now,ALT,True,2,12

@@ -127,7 +127,7 @@ def _fx(**kw):
 
 EFFECTS = {
     1: _fx(emergencies=["MAYDAY"]),
-    2: _fx(emergencies=["PAN-PAN"]),
+    2: _fx(emergencies=["PAN-PAN"], overweight=1),
     3: _fx(emergencies=["7700"]),
     4: _fx(emergencies=["7500"], hazards=[hazard((-1, 1, -1, 1), "Security isolation area")]),
     5: _fx(emergencies=["7600"]),
@@ -167,7 +167,7 @@ EFFECTS = {
     38: _fx(emergencies=["MAYDAY", "7700", "PAN-PAN"], overweight=1),
     39: _fx(emergencies=["MAYDAY", "MAYDAY", "MAYDAY", "MAYDAY"], runways=1, occupancy_extra=12,
             alt_runways=1, alt_occupancy_extra=12, extra_traffic=2),
-    40: _fx(emergencies=["PAN-PAN"], timeline=[{"t": 5, "escalate": {"agent": 0, "type": "MAYDAY"}}]),
+    40: _fx(emergencies=["PAN-PAN"], overweight=1, timeline=[{"t": 5, "escalate": {"agent": 0, "type": "MAYDAY"}}]),
     41: _fx(emergencies=["MAYDAY"], timeline=[{"t": 6, "declare": {"agent": 2, "type": "7700"}}]),
     42: _fx(stale_fraction=0.4, data_status="STALE - delayed position updates"),
     43: _fx(missing_id_fraction=0.4, data_status="INCOMPLETE - callsigns missing"),

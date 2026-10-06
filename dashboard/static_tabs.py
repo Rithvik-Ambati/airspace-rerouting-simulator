@@ -40,8 +40,12 @@ def render_engine():
 6. An aircraft that cannot land at the primary airport (closed, no runway slot, runway too short, crosswind over its limit, no
    emergency services) is offered the alternate airport; if that fails too it is reported as not flyable instead of being given an invented route.
 
+7. An **overweight emergency arrival** is not forced to hold: land-now and hold are planned at both airports, options the
+   runway cannot support at that mass are dropped, and an explicit rule picks one (time-critical emergency: earliest feasible
+   landing, flagged for inspection; otherwise reach the mass limit first). Every option and the reason is shown.
+
 **Modelled constraints:** closed/moving sectors, runway count and closure, runway length per type, crosswind limits per type,
-fuel endurance, overweight landing hold, stale/uncertain positions (widened footprint), missing identity.
+fuel endurance, overweight landing decision (land now / hold / divert), stale/uncertain positions (widened footprint), missing identity.
 
 **Not modelled:** real airspace geometry, altitude, speed differences between types, separation minima beyond cell exclusivity,
 real aircraft performance, ATC procedures. One grid cell = 8 km, one step = 1 minute.

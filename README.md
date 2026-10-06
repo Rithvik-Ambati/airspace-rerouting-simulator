@@ -11,12 +11,12 @@ A research prototype that simulates multi-agent aircraft routing when the airspa
 - **Priority.** The `priority` planner plans emergencies first (then by remaining endurance). `fifo` plans in id order. `independent` ignores other aircraft (a baseline that shows what coordination buys).
 - **Dynamic replanning.** When something changes mid-run (a restriction announced at step *t*, an emergency declared/escalated/cleared, a runway closing) every aircraft is replanned from its current position. Plans that are still legal are kept (damping), so routes do not flap; scenario 47 reports revisions with and without damping.
 - **Landing logic.** Aircraft land at a primary or alternate airport. Eligibility depends on airport/runway open, runway length vs type, crosswind vs type limit (from wind and gusts on runway 09/27) and emergency services. Failing that an aircraft is diverted; if nothing works it is reported as **not flyable** with a reason (`NO FEASIBLE DESTINATION`, `NO FEASIBLE PLAN`, `INSUFFICIENT FUEL`) and is never given an invented route.
-- **Overweight landing.** Scenario-assigned, seeded cases turn the required fuel burn-off/jettison into a minimum landing time; the aircraft holds and other traffic is planned around it. Mass limits and rates are class-level illustrations.
+- **Overweight landing: land now, hold or divert.** For seeded overweight emergency arrivals the planner plans land-now and hold at both airports (traffic, hazards, runway slots and fuel all apply), drops options the runway cannot support at that mass, and applies an explicit rule: a time-critical emergency lands at the earliest feasible slot (overweight landing accepted and flagged for inspection); otherwise an option that reaches the mass limit before touchdown is preferred. Every option and the reason is shown. Mass limits and rates are class-level illustrations, not aircraft data, and this is not an operational procedure.
 - **Data resilience.** Stale/uncertain positions get a widened safety footprint, missing callsigns stay `UNKNOWN-n`, and weather loss uses a conservative wind.
 - **Honest evaluation.** The Evaluation tab runs all three planners on identical seeded fleets and reports mean ± 95% interval per planner (conflicts, unserved emergencies, delay, extra distance, planning time).
 - **Search baselines.** `simulator/baselines.py` implements BFS, uniform-cost search, greedy best-first and A\* on the same grid and costs, reporting path cost, nodes expanded, run time and success.
 - **Reproducible experiments.** `python -m experiments.run_experiments` regenerates every table and chart (algorithm comparison, planner comparison, disruption-size and wind sweeps, fleet-size scaling, all 54 scenarios) into `results/`.
-- Streamlit dashboard with a time slider that shows hazards and aircraft positions step by step, CLI, and 46 unit tests.
+- Streamlit dashboard with a time slider that shows hazards and aircraft positions step by step, CLI, and 51 unit tests.
 
 ## Quick start (Windows PowerShell)
 
@@ -53,7 +53,7 @@ simulator/
   grid.py                   grid, hazards over time, runway book, crosswind, geometry
   planner.py                time-expanded A*, reservations, conflict counting
   engine.py                 fleet generation, destination logic, replanning loop
-  landing.py                illustrative overweight-landing model
+  landing.py                illustrative overweight-landing model and the land-now/hold/divert rule
   baselines.py              BFS / UCS / Greedy / A* single-aircraft baselines
   benchmark.py / metrics.py planner comparison and statistics
   live_data.py / airport_context.py   OpenSky, ADSBdb, Open-Meteo, OurAirports

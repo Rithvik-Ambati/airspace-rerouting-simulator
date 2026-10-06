@@ -9,26 +9,26 @@ UCS defines the optimum. BFS and Greedy are scored on how often they return that
 
 | density | algorithm | success_rate | optimal_rate | mean_cost | mean_expanded | mean_ms |
 |---|---|---|---|---|---|---|
-| 0.0 | astar | 1.0 | 1.0 | 8.353 | 15.605 | 0.125 |
-| 0.0 | bfs | 1.0 | 1.0 | 8.353 | 78.4 | 0.258 |
-| 0.0 | greedy | 1.0 | 1.0 | 8.353 | 8.22 | 0.072 |
-| 0.0 | ucs | 1.0 | 1.0 | 8.353 | 75.91 | 0.513 |
-| 0.1 | astar | 1.0 | 1.0 | 8.257 | 14.215 | 0.108 |
-| 0.1 | bfs | 1.0 | 0.965 | 8.277 | 67.495 | 0.221 |
-| 0.1 | greedy | 1.0 | 0.82 | 8.42 | 8.055 | 0.067 |
-| 0.1 | ucs | 1.0 | 1.0 | 8.257 | 67.065 | 0.437 |
-| 0.2 | astar | 1.0 | 1.0 | 8.291 | 14.345 | 0.086 |
-| 0.2 | bfs | 1.0 | 0.89 | 8.375 | 59.59 | 0.165 |
-| 0.2 | greedy | 1.0 | 0.735 | 8.541 | 8.07 | 0.054 |
-| 0.2 | ucs | 1.0 | 1.0 | 8.291 | 59.18 | 0.312 |
-| 0.3 | astar | 1.0 | 1.0 | 8.962 | 15.263 | 0.1 |
-| 0.3 | bfs | 1.0 | 0.902 | 9.05 | 52.588 | 0.157 |
-| 0.3 | greedy | 1.0 | 0.603 | 9.395 | 8.943 | 0.058 |
-| 0.3 | ucs | 1.0 | 1.0 | 8.962 | 52.222 | 0.28 |
+| 0.0 | astar | 1.0 | 1.0 | 8.353 | 15.605 | 0.141 |
+| 0.0 | bfs | 1.0 | 1.0 | 8.353 | 78.4 | 0.305 |
+| 0.0 | greedy | 1.0 | 1.0 | 8.353 | 8.22 | 0.084 |
+| 0.0 | ucs | 1.0 | 1.0 | 8.353 | 75.91 | 0.6 |
+| 0.1 | astar | 1.0 | 1.0 | 8.257 | 14.215 | 0.1 |
+| 0.1 | bfs | 1.0 | 0.965 | 8.277 | 67.495 | 0.217 |
+| 0.1 | greedy | 1.0 | 0.82 | 8.42 | 8.055 | 0.064 |
+| 0.1 | ucs | 1.0 | 1.0 | 8.257 | 67.065 | 0.424 |
+| 0.2 | astar | 1.0 | 1.0 | 8.291 | 14.345 | 0.091 |
+| 0.2 | bfs | 1.0 | 0.89 | 8.375 | 59.59 | 0.172 |
+| 0.2 | greedy | 1.0 | 0.735 | 8.541 | 8.07 | 0.058 |
+| 0.2 | ucs | 1.0 | 1.0 | 8.291 | 59.18 | 0.333 |
+| 0.3 | astar | 1.0 | 1.0 | 8.962 | 15.263 | 0.099 |
+| 0.3 | bfs | 1.0 | 0.902 | 9.05 | 52.588 | 0.163 |
+| 0.3 | greedy | 1.0 | 0.603 | 9.395 | 8.943 | 0.06 |
+| 0.3 | ucs | 1.0 | 1.0 | 8.962 | 52.222 | 0.294 |
 | 0.4 | astar | 1.0 | 1.0 | 9.645 | 16.802 | 0.091 |
-| 0.4 | bfs | 1.0 | 0.955 | 9.688 | 45.073 | 0.127 |
-| 0.4 | greedy | 1.0 | 0.718 | 10.01 | 10.209 | 0.059 |
-| 0.4 | ucs | 1.0 | 1.0 | 9.645 | 44.989 | 0.223 |
+| 0.4 | bfs | 1.0 | 0.955 | 9.688 | 45.073 | 0.13 |
+| 0.4 | greedy | 1.0 | 0.718 | 10.01 | 10.209 | 0.06 |
+| 0.4 | ucs | 1.0 | 1.0 | 9.645 | 44.989 | 0.232 |
 
 ## E2 — Planner comparison on identical seeded fleets (mean ± 95% interval)
 
@@ -36,21 +36,21 @@ Conflicts, delay and unserved emergencies, all measured by the same post-hoc che
 
 | scenario | planner | conflicts | emergencies_unserved | emergency_delay_min | total_delay_min | planning_ms |
 |---|---|---|---|---|---|---|
-| 27 | Prioritised A* (emergencies first) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 149.10 ± 22.85 | 233.36 ± 41.55 |
-| 27 | Sequential A* (id order) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 149.10 ± 22.85 | 227.99 ± 37.97 |
-| 27 | Independent A* (no coordination) | 28.00 ± 2.82 | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 11.95 ± 1.92 |
-| 32 | Prioritised A* (emergencies first) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 76.40 ± 9.48 | 83.04 ± 11.47 |
-| 32 | Sequential A* (id order) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 76.40 ± 9.48 | 86.78 ± 11.57 |
-| 32 | Independent A* (no coordination) | 28.50 ± 1.50 | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 10.34 ± 1.87 |
-| 33 | Prioritised A* (emergencies first) | 0.00 ± 0.00 | 0.00 ± 0.00 | 13.80 ± 2.66 | 63.70 ± 9.77 | 116.39 ± 30.29 |
-| 33 | Sequential A* (id order) | 0.00 ± 0.00 | 0.00 ± 0.00 | 32.00 ± 4.61 | 62.40 ± 9.62 | 90.67 ± 13.26 |
-| 33 | Independent A* (no coordination) | 22.10 ± 2.96 | 0.00 ± 0.00 | 11.00 ± 3.32 | 11.00 ± 3.32 | 31.05 ± 5.40 |
-| 36 | Prioritised A* (emergencies first) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 137.70 ± 23.07 | 207.91 ± 39.83 |
-| 36 | Sequential A* (id order) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 137.70 ± 23.07 | 234.42 ± 61.20 |
-| 36 | Independent A* (no coordination) | 26.10 ± 2.36 | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 12.68 ± 1.74 |
-| 50 | Prioritised A* (emergencies first) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.70 ± 0.72 | 52.60 ± 7.84 | 40.55 ± 6.62 |
-| 50 | Sequential A* (id order) | 0.00 ± 0.00 | 0.00 ± 0.00 | 4.20 ± 2.37 | 51.90 ± 7.26 | 48.89 ± 14.70 |
-| 50 | Independent A* (no coordination) | 27.20 ± 3.55 | 0.00 ± 0.00 | 0.70 ± 0.72 | 9.60 ± 2.15 | 15.52 ± 3.74 |
+| 27 | Prioritised A* (emergencies first) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 149.10 ± 22.85 | 408.55 ± 84.68 |
+| 27 | Sequential A* (id order) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 149.10 ± 22.85 | 344.23 ± 85.64 |
+| 27 | Independent A* (no coordination) | 28.00 ± 2.82 | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 12.68 ± 2.22 |
+| 32 | Prioritised A* (emergencies first) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 76.40 ± 9.48 | 92.05 ± 12.96 |
+| 32 | Sequential A* (id order) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 76.40 ± 9.48 | 90.96 ± 13.87 |
+| 32 | Independent A* (no coordination) | 28.50 ± 1.50 | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 10.48 ± 1.90 |
+| 33 | Prioritised A* (emergencies first) | 0.00 ± 0.00 | 0.00 ± 0.00 | 4.60 ± 1.41 | 54.30 ± 9.30 | 111.58 ± 20.42 |
+| 33 | Sequential A* (id order) | 0.00 ± 0.00 | 0.00 ± 0.00 | 20.40 ± 4.85 | 49.90 ± 8.02 | 104.53 ± 16.27 |
+| 33 | Independent A* (no coordination) | 22.30 ± 3.04 | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 46.06 ± 10.56 |
+| 36 | Prioritised A* (emergencies first) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 137.70 ± 23.07 | 220.58 ± 40.87 |
+| 36 | Sequential A* (id order) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 137.70 ± 23.07 | 225.15 ± 42.14 |
+| 36 | Independent A* (no coordination) | 26.10 ± 2.36 | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 13.41 ± 1.44 |
+| 50 | Prioritised A* (emergencies first) | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.70 ± 0.72 | 52.60 ± 7.84 | 46.35 ± 6.59 |
+| 50 | Sequential A* (id order) | 0.00 ± 0.00 | 0.00 ± 0.00 | 4.20 ± 2.37 | 51.90 ± 7.26 | 43.92 ± 8.09 |
+| 50 | Independent A* (no coordination) | 27.20 ± 3.55 | 0.00 ± 0.00 | 0.70 ± 0.72 | 9.60 ± 2.15 | 14.27 ± 2.33 |
 
 ## E3 — Effect of disruption size
 
@@ -101,24 +101,24 @@ Means over seeds.
 
 | aircraft | planner | planning_ms | conflicts | total_delay_min |
 |---|---|---|---|---|
-| 4 | Independent A* (no coordination) | 5.68 | 3.9 | 3.2 |
-| 4 | Prioritised A* (emergencies first) | 5.69 | 0.0 | 4.9 |
-| 4 | Sequential A* (id order) | 6.32 | 0.0 | 4.9 |
-| 8 | Independent A* (no coordination) | 10.83 | 9.4 | 6.7 |
-| 8 | Prioritised A* (emergencies first) | 16.22 | 0.0 | 13.5 |
-| 8 | Sequential A* (id order) | 16.23 | 0.0 | 14.3 |
-| 12 | Independent A* (no coordination) | 15.39 | 23.8 | 10.8 |
-| 12 | Prioritised A* (emergencies first) | 27.92 | 0.0 | 37.3 |
-| 12 | Sequential A* (id order) | 34.04 | 0.0 | 36.8 |
-| 16 | Independent A* (no coordination) | 20.66 | 34.0 | 13.9 |
-| 16 | Prioritised A* (emergencies first) | 56.15 | 0.0 | 66.2 |
-| 16 | Sequential A* (id order) | 59.71 | 0.0 | 65.3 |
-| 20 | Independent A* (no coordination) | 22.98 | 47.4 | 15.4 |
-| 20 | Prioritised A* (emergencies first) | 100.91 | 0.0 | 109.8 |
-| 20 | Sequential A* (id order) | 96.88 | 0.0 | 110.5 |
-| 24 | Independent A* (no coordination) | 26.89 | 61.2 | 16.4 |
-| 24 | Prioritised A* (emergencies first) | 133.47 | 0.0 | 150.7 |
-| 24 | Sequential A* (id order) | 139.4 | 0.0 | 150.5 |
+| 4 | Independent A* (no coordination) | 8.0 | 3.9 | 3.2 |
+| 4 | Prioritised A* (emergencies first) | 7.64 | 0.0 | 4.9 |
+| 4 | Sequential A* (id order) | 6.85 | 0.0 | 4.9 |
+| 8 | Independent A* (no coordination) | 25.74 | 9.4 | 6.7 |
+| 8 | Prioritised A* (emergencies first) | 20.76 | 0.0 | 13.5 |
+| 8 | Sequential A* (id order) | 39.29 | 0.0 | 14.3 |
+| 12 | Independent A* (no coordination) | 28.96 | 23.8 | 10.8 |
+| 12 | Prioritised A* (emergencies first) | 48.25 | 0.0 | 37.3 |
+| 12 | Sequential A* (id order) | 52.22 | 0.0 | 36.8 |
+| 16 | Independent A* (no coordination) | 27.68 | 34.0 | 13.9 |
+| 16 | Prioritised A* (emergencies first) | 95.91 | 0.0 | 66.2 |
+| 16 | Sequential A* (id order) | 112.61 | 0.0 | 65.3 |
+| 20 | Independent A* (no coordination) | 30.53 | 47.4 | 15.4 |
+| 20 | Prioritised A* (emergencies first) | 149.66 | 0.0 | 109.8 |
+| 20 | Sequential A* (id order) | 143.58 | 0.0 | 110.5 |
+| 24 | Independent A* (no coordination) | 43.86 | 61.2 | 16.4 |
+| 24 | Prioritised A* (emergencies first) | 223.98 | 0.0 | 150.7 |
+| 24 | Sequential A* (id order) | 243.28 | 0.0 | 150.5 |
 
 ## E6 — All 54 scenarios, 12 aircraft
 
@@ -127,11 +127,11 @@ Means over seeds.
 | id | scenario | rerouted | delayed | diverted | infeasible | conflicts | total_delay_min | extra_distance_km | route_revisions |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | MAYDAY — critical distress | 7.3 | 5.5 | 0.0 | 0.0 | 0 | 18.5 | 81.05 | 0.0 |
-| 2 | PAN-PAN — urgency | 8.2 | 6.5 | 0.0 | 0.0 | 0 | 25.5 | 110.63 | 0.0 |
+| 2 | PAN-PAN — urgency | 7.7 | 6.5 | 0.0 | 0.0 | 0 | 27.2 | 124.1 | 0.0 |
 | 3 | Squawk 7700 — general emergency | 7.8 | 6.0 | 0.0 | 0.0 | 0 | 19.3 | 81.66 | 0.0 |
 | 4 | Squawk 7500 — unlawful interference | 11.1 | 6.2 | 7.3 | 0.0 | 0 | 21.2 | 94.6 | 0.0 |
 | 5 | Squawk 7600 — radio failure | 7.2 | 5.6 | 0.0 | 0.0 | 0 | 15.1 | 72.03 | 0.0 |
-| 6 | Engine failure / technical malfunction | 7.4 | 5.5 | 0.0 | 0.0 | 0 | 21.3 | 96.37 | 0.0 |
+| 6 | Engine failure / technical malfunction | 7.4 | 4.8 | 0.6 | 0.0 | 0 | 14.1 | 50.57 | 0.0 |
 | 7 | Onboard medical emergency | 6.5 | 4.7 | 0.0 | 0.0 | 0 | 16.0 | 80.41 | 0.0 |
 | 8 | Low fuel / fuel-system alert | 7.6 | 5.9 | 0.0 | 0.0 | 0 | 21.1 | 102.48 | 0.0 |
 | 9 | Presidential visit / VIP security zone | 8.8 | 6.6 | 0.0 | 0.0 | 0 | 19.8 | 111.99 | 0.0 |
@@ -158,14 +158,14 @@ Means over seeds.
 | 30 | Diversion airport at capacity | 10.0 | 8.3 | 8.6 | 0.0 | 0 | 130.7 | 754.44 | 0.0 |
 | 31 | Taxiway / ground movement disruption | 8.1 | 5.6 | 0.0 | 0.0 | 0 | 75.3 | 416.82 | 0.0 |
 | 32 | Two aircraft converge on same cell | 9.3 | 8.7 | 0.0 | 0.0 | 0 | 50.3 | 230.08 | 0.0 |
-| 33 | Multiple emergency landing requests | 8.4 | 7.1 | 0.0 | 0.0 | 0 | 58.7 | 305.5 | 0.0 |
+| 33 | Multiple emergency landing requests | 8.3 | 6.5 | 0.4 | 0.0 | 0 | 48.3 | 239.14 | 0.0 |
 | 34 | Emergency versus VIP restriction | 10.1 | 7.6 | 0.0 | 0.0 | 0 | 23.5 | 128.27 | 0.0 |
 | 35 | Emergency diverts regional traffic | 10.3 | 7.1 | 8.5 | 0.0 | 0 | 31.4 | 167.35 | 0.0 |
 | 36 | Aircraft compete for same runway | 9.1 | 8.1 | 0.0 | 0.0 | 0 | 81.8 | 440.53 | 0.0 |
 | 37 | Reroute creates a new conflict | 9.0 | 8.4 | 0.0 | 0.1 | 0 | 46.4 | 238.88 | 2.6 |
-| 38 | Several emergencies simultaneously | 8.2 | 7.0 | 0.0 | 0.0 | 0 | 38.0 | 187.49 | 0.0 |
+| 38 | Several emergencies simultaneously | 8.4 | 7.1 | 0.0 | 0.0 | 0 | 32.9 | 155.96 | 0.0 |
 | 39 | No feasible conflict-free plan | 7.9 | 7.0 | 3.9 | 1.5 | 0 | 177.9 | 932.49 | 0.0 |
-| 40 | PAN-PAN escalates to MAYDAY | 7.5 | 5.3 | 0.0 | 0.0 | 0 | 15.1 | 64.76 | 0.0 |
+| 40 | PAN-PAN escalates to MAYDAY | 8.0 | 6.1 | 0.0 | 0.0 | 0 | 18.6 | 91.53 | 3.3 |
 | 41 | Second emergency mid-reroute | 8.0 | 6.2 | 0.0 | 0.0 | 0 | 23.1 | 98.01 | 0.0 |
 | 42 | Delayed aircraft position update | 8.8 | 6.5 | 0.0 | 0.2 | 0 | 17.2 | 88.1 | 0.0 |
 | 43 | Missing callsign or identity | 8.5 | 7.2 | 0.0 | 0.0 | 0 | 22.0 | 107.77 | 0.0 |
@@ -176,7 +176,21 @@ Means over seeds.
 | 48 | Emergency resolves / is cancelled | 9.9 | 7.0 | 0.0 | 0.0 | 0 | 22.0 | 123.73 | 0.0 |
 | 49 | No feasible destination | 1.6 | 0.6 | 0.0 | 6.8 | 0 | 0.6 | 3.67 | 0.0 |
 | 50 | Flagship: VIP restriction + MAYDAY | 10.4 | 8.6 | 0.0 | 0.0 | 0 | 37.3 | 195.29 | 0.0 |
-| 51 | Flagship: MAYDAY + medical + gusts | 6.3 | 4.4 | 0.0 | 1.8 | 0 | 17.0 | 56.05 | 0.0 |
+| 51 | Flagship: MAYDAY + medical + gusts | 6.4 | 4.2 | 0.2 | 1.8 | 0 | 9.1 | 30.91 | 0.0 |
 | 52 | Flagship: multiple emergencies + runway closure | 9.6 | 8.0 | 7.7 | 0.0 | 0 | 60.1 | 402.0 | 8.2 |
 | 53 | Flagship: moving storm + cascading diversions | 9.8 | 8.3 | 0.0 | 0.4 | 0 | 71.7 | 375.68 | 2.7 |
-| 54 | Flagship: full-system stress test | 8.5 | 7.6 | 4.0 | 2.3 | 0 | 60.2 | 398.25 | 4.1 |
+| 54 | Flagship: full-system stress test | 8.5 | 7.3 | 4.0 | 2.3 | 0 | 58.5 | 389.52 | 4.1 |
+
+## E7 — Overweight landing decisions (land now / hold / divert)
+
+Share of overweight emergency arrivals choosing each option. Scenarios 2 and 40 start as PAN-PAN (non-urgent); scenario 40 escalates to MAYDAY at step 5. Illustrative decision rule, not an operational procedure.
+
+| scenario | cases | land_now | hold | alternate_airport | overweight_at_touchdown | mean_touchdown_step | mean_touchdown_if_held_at_primary |
+|---|---|---|---|---|---|---|---|
+| 2.0 | 30.0 | 0.23 | 0.77 | 0.03 | 0.2 | 11.07 | 15.2 |
+| 6.0 | 30.0 | 1.0 | 0.0 | 0.33 | 0.93 | 4.33 | 15.13 |
+| 33.0 | 30.0 | 1.0 | 0.0 | 0.47 | 0.97 | 3.9 | 17.3 |
+| 38.0 | 30.0 | 0.83 | 0.17 | 0.27 | 0.77 | 6.23 | 15.03 |
+| 40.0 | 30.0 | 1.0 | 0.0 | 0.07 | 1.0 | 1.43 | 10.7 |
+| 51.0 | 23.0 | 1.0 | 0.0 | 0.3 | 0.96 | 4.17 | 15.04 |
+| 54.0 | 19.0 | 1.0 | 0.0 | 0.32 | 0.89 | 4.63 | 15.63 |
