@@ -181,7 +181,7 @@ class _Round:
                 if path is None:
                     option["reason"] = "no legal path/runway slot within endurance"
                 else:
-                    arrival = len(path) - 1
+                    arrival = te + len(path) - 1      # absolute step (the path starts at step te)
                     option.update(arrival=arrival, plan=(airport, path, occ),
                                   excess_at_touchdown_t=excess_at_arrival(case, arrival))
                     option["overweight_landing"] = option["excess_at_touchdown_t"] > 0

@@ -286,6 +286,15 @@ class EngineScenarioTests(unittest.TestCase):
         self.assertEqual(d["event"], "MAYDAY")
         self.assertEqual(d["mode"], "land_now")
 
+    def test_option_touchdown_steps_are_absolute_after_a_replan(self):
+        # regression: options planned at a replan (step 5) were reported relative to that replan
+        for seed in range(4):
+            a = run(40, 10, seed=seed)["aircraft"][0]
+            d = a["landing_decision"]
+            self.assertTrue(all(o["arrival"] >= 5 for o in d["options"] if o["arrival"] is not None))
+            chosen = [o for o in d["options"] if (o["airport"], o["mode"]) == (d["airport"], d["mode"])][0]
+            self.assertEqual(a["arrival_step"], chosen["arrival"])
+
     def test_choose_option_rules(self):
         def opt(airport, mode, arrival, ow, feasible=True):
             return {"airport": airport, "mode": mode, "arrival": arrival, "overweight_landing": ow, "feasible": feasible}

@@ -119,36 +119,36 @@ scenario,seed,event,profile,mode,airport,overweight_at_touchdown,touchdown_step,
 38,27,MAYDAY,Narrowbody,land_now,PRIMARY,True,5,25
 38,28,PAN-PAN,Narrowbody,hold,PRIMARY,False,23,23
 38,29,7700,Widebody,land_now,ALT,True,2,7
-40,0,MAYDAY,Regional jet,land_now,PRIMARY,True,1,20
-40,1,MAYDAY,Narrowbody,land_now,PRIMARY,True,2,9
-40,2,MAYDAY,Turboprop,land_now,PRIMARY,True,1,11
-40,3,MAYDAY,Regional jet,land_now,PRIMARY,True,1,2
-40,4,MAYDAY,Narrowbody,land_now,PRIMARY,True,2,11
-40,5,MAYDAY,Widebody,land_now,PRIMARY,True,2,5
-40,6,MAYDAY,Widebody,land_now,PRIMARY,True,1,2
-40,7,MAYDAY,Widebody,land_now,PRIMARY,True,1,3
-40,8,MAYDAY,Widebody,land_now,PRIMARY,True,1,1
-40,9,MAYDAY,Regional jet,land_now,PRIMARY,True,2,9
-40,10,MAYDAY,Narrowbody,land_now,PRIMARY,True,0,13
-40,11,MAYDAY,Narrowbody,land_now,PRIMARY,True,2,15
-40,12,MAYDAY,Narrowbody,land_now,PRIMARY,True,2,18
-40,13,MAYDAY,Turboprop,land_now,PRIMARY,True,1,7
-40,14,MAYDAY,Regional jet,land_now,PRIMARY,True,0,20
-40,15,MAYDAY,Widebody,land_now,ALT,True,2,3
-40,16,MAYDAY,Narrowbody,land_now,PRIMARY,True,1,15
-40,17,MAYDAY,Narrowbody,land_now,PRIMARY,True,0,20
-40,18,MAYDAY,Turboprop,land_now,PRIMARY,True,3,7
-40,19,MAYDAY,Narrowbody,land_now,PRIMARY,True,4,13
-40,20,MAYDAY,Turboprop,land_now,PRIMARY,True,1,15
-40,21,MAYDAY,Narrowbody,land_now,PRIMARY,True,2,9
-40,22,MAYDAY,Turboprop,land_now,PRIMARY,True,1,9
+40,0,MAYDAY,Regional jet,land_now,PRIMARY,True,6,25
+40,1,MAYDAY,Narrowbody,land_now,PRIMARY,True,7,14
+40,2,MAYDAY,Turboprop,land_now,PRIMARY,True,6,16
+40,3,MAYDAY,Regional jet,land_now,PRIMARY,True,6,7
+40,4,MAYDAY,Narrowbody,land_now,PRIMARY,True,7,16
+40,5,MAYDAY,Widebody,land_now,PRIMARY,True,7,10
+40,6,MAYDAY,Widebody,land_now,PRIMARY,True,6,7
+40,7,MAYDAY,Widebody,land_now,PRIMARY,True,6,8
+40,8,MAYDAY,Widebody,land_now,PRIMARY,False,6,6
+40,9,MAYDAY,Regional jet,land_now,PRIMARY,True,7,14
+40,10,MAYDAY,Narrowbody,land_now,PRIMARY,True,5,18
+40,11,MAYDAY,Narrowbody,land_now,PRIMARY,True,7,20
+40,12,MAYDAY,Narrowbody,land_now,PRIMARY,True,7,23
+40,13,MAYDAY,Turboprop,land_now,PRIMARY,True,6,12
+40,14,MAYDAY,Regional jet,land_now,PRIMARY,True,5,25
+40,15,MAYDAY,Widebody,land_now,ALT,True,7,8
+40,16,MAYDAY,Narrowbody,land_now,PRIMARY,True,6,20
+40,17,MAYDAY,Narrowbody,land_now,PRIMARY,True,5,25
+40,18,MAYDAY,Turboprop,land_now,PRIMARY,True,8,12
+40,19,MAYDAY,Narrowbody,land_now,PRIMARY,True,9,18
+40,20,MAYDAY,Turboprop,land_now,PRIMARY,True,6,20
+40,21,MAYDAY,Narrowbody,land_now,PRIMARY,True,7,14
+40,22,MAYDAY,Turboprop,land_now,PRIMARY,True,6,14
 40,23,PAN-PAN,Narrowbody,land_now,ALT,True,4,25
-40,24,MAYDAY,Widebody,land_now,PRIMARY,True,1,1
-40,25,MAYDAY,Regional jet,land_now,PRIMARY,True,0,20
-40,26,MAYDAY,Narrowbody,land_now,PRIMARY,True,1,18
-40,27,MAYDAY,Turboprop,land_now,PRIMARY,True,2,7
-40,28,MAYDAY,Turboprop,land_now,PRIMARY,True,1,9
-40,29,MAYDAY,Turboprop,land_now,PRIMARY,True,1,4
+40,24,MAYDAY,Widebody,land_now,PRIMARY,False,6,6
+40,25,MAYDAY,Regional jet,land_now,PRIMARY,True,5,25
+40,26,MAYDAY,Narrowbody,land_now,PRIMARY,True,6,23
+40,27,MAYDAY,Turboprop,land_now,PRIMARY,True,7,12
+40,28,MAYDAY,Turboprop,land_now,PRIMARY,True,6,14
+40,29,MAYDAY,Turboprop,land_now,PRIMARY,True,6,9
 51,1,MAYDAY,Regional jet,land_now,ALT,True,2,18
 51,2,MAYDAY,Regional jet,land_now,PRIMARY,True,5,20
 51,3,MAYDAY,Regional jet,land_now,PRIMARY,True,5,20
