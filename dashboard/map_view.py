@@ -1,6 +1,8 @@
 """Folium map construction for the operations view and the live-data tab."""
 import folium
 
+from simulator.grid import GRID_MAX, GRID_MIN, cell_bounds
+
 COLORS = ["#38bdf8", "#fbbf24", "#a78bfa", "#34d399", "#fb7185", "#f97316", "#60a5fa", "#e879f9"]
 FT_PER_M, KT_PER_MPS, FPM_PER_MPS = 3.28084, 1.94384, 196.8504
 
@@ -54,7 +56,10 @@ def live_rows(live):
 def build_ops_map(result, airport, step, live=None):
     """Full routes, hazards and aircraft positions at `step`, both airports, optional live overlay."""
     fmap = folium.Map(location=[airport["latitude_deg"], airport["longitude_deg"]], zoom_start=8,
-                      tiles="OpenStreetMap", control_scale=True)
+                      tiles="OpenStreetMap", control_scale=True, zoom_snap=0.1)
+    # Frame the whole 11x11 simulated airspace (plus a margin) instead of an arbitrary zoom level.
+    sw, ne = cell_bounds((GRID_MIN, GRID_MIN), result["center"])[0], cell_bounds((GRID_MAX, GRID_MAX), result["center"])[1]
+    fmap.fit_bounds([sw, ne], padding=(12, 12))
     primary, alt = result["airports"]["PRIMARY"], result["airports"]["ALT"]
     status = result["airport_status"]
     folium.Marker(primary, tooltip=f"{airport['name']} · {'open' if status['PRIMARY'] else 'CLOSED'}",

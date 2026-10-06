@@ -48,13 +48,19 @@ def _outcome_rows(result):
         rows.append({
             "Aircraft": a["callsign"], "Type": a["profile"], "Role": a["kind"], "Event": a["event"],
             "Plan": a["status"], "Destination": a["destination"] or "—",
-            "Original km": round(a["original_distance_km"], 1), "Revised km": round(a["distance_km"], 1),
+            # Text columns throughout: an aircraft that never flew shows "—", not the stub of an unflown track.
+            "Original km": f'{a["original_distance_km"]:.1f}',
+            "Revised km": "—" if a["failed"] else f'{a["distance_km"]:.1f}',
             "Original ETA": fmt(a["original_arrival_step"]),
             "New ETA": "—" if a["failed"] else fmt(a["arrival_step"]),
-            "Delay (min)": None if a["failed"] else a["delay_steps"] * STEP_MINUTES,
-            "Holding steps": a["wait_steps"], "Plan revisions": a["revisions"],
+            "Delay (min)": "—" if a["failed"] else f'{a["delay_steps"] * STEP_MINUTES:g}',
+            "Holding steps": "—" if a["failed"] else str(a["wait_steps"]),
+            "Plan revisions": str(a["revisions"]),
             "Position data": "uncertain" if a["uncertain_position"] else "nominal",
         })
+    if not any(a["uncertain_position"] for a in result["aircraft"]):
+        for r in rows:
+            del r["Position data"]
     return rows
 
 
@@ -72,15 +78,21 @@ def _landing_cases(result):
     rows = []
     for a in cases:
         c, d = a["landing_case"], a["landing_decision"] or {}
+        touchdown = d.get("excess_at_touchdown_t")
         rows.append({"Aircraft": a["callsign"], "Type": a["profile"], "Event": a["event"],
-                     "Predicted landing mass (t)": c["predicted_landing_mass_t"],
-                     "Illustrative limit (t)": c["landing_mass_limit_t"], "Excess (t)": c["excess_t"],
-                     "Reduction": c["method"],
+                     "Mass (t)": str(c["predicted_landing_mass_t"]), "Limit (t)": str(c["landing_mass_limit_t"]),
+                     "Excess (t)": str(c["excess_t"]), "Reduction": c["method"],
                      "Decision": (d.get("mode") or "none").replace("_", " ") + (f" at {d['airport']}" if d.get("airport") else ""),
-                     "Excess at touchdown (t)": d.get("excess_at_touchdown_t"),
-                     "Result": a["status"], "Why": d.get("rationale", "")})
-    st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True)
-    with st.expander("Options considered for each aircraft"):
+                     "Excess at touchdown (t)": "—" if touchdown is None else f"{touchdown:g}",
+                     "Why": d.get("rationale", "")})
+    st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True,
+                 column_config={"Why": st.column_config.TextColumn(width="large"),
+                                "Decision": st.column_config.TextColumn(width="medium"),
+                                "Event": st.column_config.TextColumn(width="medium"),
+                                "Reduction": st.column_config.TextColumn(width="medium"),
+                                **{c: st.column_config.Column(width="small") for c in (
+                                    "Aircraft", "Type", "Mass (t)", "Limit (t)", "Excess (t)", "Excess at touchdown (t)")}})
+    with st.expander("Options considered for each aircraft", expanded=True):
         for a in cases:
             d = a["landing_decision"]
             if not d:
@@ -116,7 +128,7 @@ def render(result, selected, settings):
     with left:
         st.markdown("#### Airspace and route visualization")
         step = st.slider("Time step (minutes into the run)", 0, result["max_step"], 0)
-        st_folium(build_ops_map(result, airport, step, live_here), height=520, use_container_width=True, returned_objects=[])
+        st_folium(build_ops_map(result, airport, step, live_here), height=560, use_container_width=True, returned_objects=[])
         st.caption("Dashed grey = original (unimpeded) route. Solid = planned route (red = emergency). Red squares = closed "
                    "sectors at the chosen step. Dots = aircraft position at that step. Blue dots = real OpenSky snapshot "
                    "(position only; routes/runways are simulated).")
@@ -141,8 +153,6 @@ def render(result, selected, settings):
         if not result["airport_status"]["ALT"]:
             bits.append("Alternate airport closed")
         st.info(f'**{selected["title"]}**\n\n{selected["description"]}\n\n' + ("\n\n".join(bits) if bits else "No modelled disruption beyond normal traffic."))
-        st.markdown("#### Planner outcomes")
-        st.dataframe(pd.DataFrame(_outcome_rows(result)), width="stretch", hide_index=True, height=420)
         st.markdown("#### Safety gate")
         problems = []
         if m["conflicts"]:
@@ -164,4 +174,13 @@ def render(result, selected, settings):
                 st.info("The live feed returned no aircraft with position data in this area.")
         else:
             st.info("Click **Fetch live flights for operations map** in the sidebar to overlay real aircraft positions.")
+    st.markdown("#### Planner outcomes")
+    st.dataframe(pd.DataFrame(_outcome_rows(result)), width="stretch", hide_index=True,
+                 height=min(560, 38 + 35 * len(result["aircraft"])),
+                 column_config={"Plan": st.column_config.TextColumn(width="large"),
+                                "Event": st.column_config.TextColumn(width="medium"),
+                                **{c: st.column_config.Column(width="small") for c in (
+                                    "Aircraft", "Type", "Role", "Destination", "Original km", "Revised km",
+                                    "Original ETA", "New ETA", "Delay (min)", "Holding steps", "Plan revisions",
+                                    "Position data")}})
     _landing_cases(result)

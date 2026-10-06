@@ -16,7 +16,8 @@ A research prototype that simulates multi-agent aircraft routing when the airspa
 - **Honest evaluation.** The Evaluation tab runs all three planners on identical seeded fleets and reports mean ± 95% interval per planner (conflicts, unserved emergencies, delay, extra distance, planning time).
 - **Search baselines.** `simulator/baselines.py` implements BFS, uniform-cost search, greedy best-first and A\* on the same grid and costs, reporting path cost, nodes expanded, run time and success.
 - **Reproducible experiments.** `python -m experiments.run_experiments` regenerates every table and chart (algorithm comparison, planner comparison, disruption-size and wind sweeps, fleet-size scaling, all 54 scenarios) into `results/`.
-- Streamlit dashboard with a time slider that shows hazards and aircraft positions step by step, CLI, and 51 unit tests.
+- **Report figures.** `report_figures/` holds 24 dashboard screenshots with ready-to-paste captions (`report_figures/CAPTIONS.md`).
+- Streamlit dashboard with a time slider that shows hazards and aircraft positions step by step, CLI, and 52 unit tests.
 
 ## Quick start (Windows PowerShell)
 
@@ -58,7 +59,8 @@ simulator/
   benchmark.py / metrics.py planner comparison and statistics
   live_data.py / airport_context.py   OpenSky, ADSBdb, Open-Meteo, OurAirports
   cli.py / export_catalogue.py
-experiments/run_experiments.py   regenerates results/ (CSVs, charts, summary.md)
+experiments/run_experiments.py   regenerates results/ (CSVs, charts, summary.md); --only E6,E7 re-runs selected ones
+report_figures/             dashboard screenshots + CAPTIONS.md
 results/                    generated experiment outputs
 tests/test_simulator.py
 ```
