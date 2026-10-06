@@ -4,6 +4,7 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
+from simulator.baselines import ALGORITHMS, path_cost, search
 from simulator.benchmark import run_benchmark, summarize_benchmark
 from simulator.engine import PLANNERS, SimulationEngine, effective_wind
 from simulator.grid import (ALT, PRIMARY, Hazards, RunwayBook, cell_bounds, crosswind_kt, in_grid, to_latlon)
@@ -284,6 +285,49 @@ class EngineScenarioTests(unittest.TestCase):
     def test_invalid_planner_rejected(self):
         with self.assertRaises(ValueError):
             run(1, 5, planner="nope")
+
+
+class BaselineSearchTests(unittest.TestCase):
+    WALL = frozenset({(0, y) for y in range(-4, 5)})
+
+    def test_all_algorithms_find_a_valid_path(self):
+        for algo in ALGORITHMS:
+            r = search(algo, (-5, 0), (5, 0), self.WALL)
+            self.assertTrue(r["success"], algo)
+            self.assertEqual((r["path"][0], r["path"][-1]), ((-5, 0), (5, 0)))
+            self.assertTrue(all(n not in self.WALL for n in r["path"]))
+            self.assertAlmostEqual(r["cost"], path_cost(r["path"]))
+
+    def test_ucs_and_astar_are_optimal_and_astar_expands_less(self):
+        rng = __import__("random").Random(3)
+        edge = [(x, y) for x in range(-5, 6) for y in range(-5, 6) if abs(x) == 5 or abs(y) == 5]
+        for _ in range(60):
+            start, goal = rng.sample(edge, 2)
+            blocked = {(x, y) for x in range(-5, 6) for y in range(-5, 6) if rng.random() < 0.25} - {start, goal}
+            res = {a: search(a, start, goal, blocked) for a in ALGORITHMS}
+            if not res["ucs"]["success"]:
+                for a in ALGORITHMS:
+                    self.assertFalse(res[a]["success"], a)       # nobody invents a path
+                continue
+            best = res["ucs"]["cost"]
+            self.assertAlmostEqual(res["astar"]["cost"], best)
+            self.assertGreaterEqual(res["bfs"]["cost"], best - 1e-9)
+            self.assertGreaterEqual(res["greedy"]["cost"], best - 1e-9)
+            self.assertLessEqual(res["astar"]["expanded"], res["ucs"]["expanded"])
+
+    def test_unreachable_goal_is_reported(self):
+        belt = frozenset({(x, 2) for x in range(-5, 6)})
+        for algo in ALGORITHMS:
+            self.assertFalse(search(algo, (0, -5), (0, 5), belt)["success"])
+
+    def test_unknown_algorithm_rejected(self):
+        with self.assertRaises(ValueError):
+            search("dfs", (0, 0), (1, 1))
+
+    def test_time_expanded_planner_reports_expanded_nodes(self):
+        stats = {}
+        plan((-5, 0), (5, 0), stats=stats)
+        self.assertGreaterEqual(stats["expanded"], 11)
 
 
 class BenchmarkTests(unittest.TestCase):

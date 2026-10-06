@@ -14,7 +14,9 @@ A research prototype that simulates multi-agent aircraft routing when the airspa
 - **Overweight landing.** Scenario-assigned, seeded cases turn the required fuel burn-off/jettison into a minimum landing time; the aircraft holds and other traffic is planned around it. Mass limits and rates are class-level illustrations.
 - **Data resilience.** Stale/uncertain positions get a widened safety footprint, missing callsigns stay `UNKNOWN-n`, and weather loss uses a conservative wind.
 - **Honest evaluation.** The Evaluation tab runs all three planners on identical seeded fleets and reports mean ± 95% interval per planner (conflicts, unserved emergencies, delay, extra distance, planning time).
-- Streamlit dashboard with a time slider that shows hazards and aircraft positions step by step, CLI, and 41 unit tests.
+- **Search baselines.** `simulator/baselines.py` implements BFS, uniform-cost search, greedy best-first and A\* on the same grid and costs, reporting path cost, nodes expanded, run time and success.
+- **Reproducible experiments.** `python -m experiments.run_experiments` regenerates every table and chart (algorithm comparison, planner comparison, disruption-size and wind sweeps, fleet-size scaling, all 54 scenarios) into `results/`.
+- Streamlit dashboard with a time slider that shows hazards and aircraft positions step by step, CLI, and 46 unit tests.
 
 ## Quick start (Windows PowerShell)
 
@@ -52,9 +54,12 @@ simulator/
   planner.py                time-expanded A*, reservations, conflict counting
   engine.py                 fleet generation, destination logic, replanning loop
   landing.py                illustrative overweight-landing model
+  baselines.py              BFS / UCS / Greedy / A* single-aircraft baselines
   benchmark.py / metrics.py planner comparison and statistics
   live_data.py / airport_context.py   OpenSky, ADSBdb, Open-Meteo, OurAirports
   cli.py / export_catalogue.py
+experiments/run_experiments.py   regenerates results/ (CSVs, charts, summary.md)
+results/                    generated experiment outputs
 tests/test_simulator.py
 ```
 

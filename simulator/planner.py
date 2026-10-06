@@ -65,10 +65,11 @@ def wind_multiplier(move, wind_kt, gust_kt, wind_dir_deg):
 
 
 def plan_path(start, t0, goal, *, hazards, known_t, res, wind, horizon=HORIZON,
-              runways=None, airport=None, occupancy=0, min_arrival=0, use_reservations=True):
+              runways=None, airport=None, occupancy=0, min_arrival=0, use_reservations=True, stats=None):
     """Time-expanded A*. Returns the node sequence for steps t0..t_arrive, or None.
 
-    `wind` = (wind_kt, gust_kt, dir_deg). With `runways`/`airport` set the goal is
+    `wind` = (wind_kt, gust_kt, dir_deg). If `stats` is a dict, it receives the number of
+    (cell, time) states expanded under key "expanded". With `runways`/`airport` set the goal is
     only accepted at a step where a runway slot is free (the aircraft may hold
     until one opens, within the horizon).
     """
@@ -82,6 +83,8 @@ def plan_path(start, t0, goal, *, hazards, known_t, res, wind, horizon=HORIZON,
         if (node, t) in closed:
             continue
         closed.add((node, t))
+        if stats is not None:
+            stats["expanded"] = stats.get("expanded", 0) + 1
         if node == goal and t >= min_arrival and (
                 runways is None or runways.can_land(airport, t, occupancy)):
             path = []
